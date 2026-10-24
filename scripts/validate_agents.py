@@ -8,7 +8,7 @@ except ImportError:
 
 MODELS = {"sonnet", "opus", "haiku", "fable", "inherit"}
 errors, descriptions = [], {}
-for path in sorted(glob.glob(".claude/agents/*.md")):
+for path in sorted(glob.glob(".claude/agents/*.md") + glob.glob(".claude/agents-dormant/*.md")):
     stem = os.path.splitext(os.path.basename(path))[0]
     text = open(path, encoding="utf-8").read()
     m = re.match(r"---\n(.*?)\n---\n(.*)", text, re.S)
@@ -32,8 +32,12 @@ for path in sorted(glob.glob(".claude/agents/*.md")):
     if "docs/status" not in m.group(2):
         errors.append(f"{path}: body never mentions docs/status")
     descriptions[stem] = str(fm.get("description", ""))
-if len(descriptions) != 7:
-    errors.append(f"expected 7 agents, found {len(descriptions)}")
+if len(descriptions) != 10:
+    errors.append(f"expected 10 roles, found {len(descriptions)}")
+agents_md = open("AGENTS.md", encoding="utf-8").read() if os.path.exists("AGENTS.md") else ""
+for name in descriptions:
+    if f"`{name}`" not in agents_md:
+        errors.append(f"AGENTS.md does not list role {name}")
 if errors:
     print("\n".join(errors)); sys.exit(1)
 print(f"{len(descriptions)} agents valid")

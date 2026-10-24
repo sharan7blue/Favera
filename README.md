@@ -4,7 +4,7 @@ Plain-English Search Console traffic-drop reports for SEO freelancers and agenci
 
 - `apps/web/` the one-page site, plain HTML and CSS, deployed by Cloudflare Pages
 - `docs/` plan, decisions and daily status written by the agent team
-- `.claude/agents/` the seven agent definitions (manager plus six specialists)
+- `AGENTS.md` the team brief; `.claude/agents/` the nine active role definitions and `.claude/agents-dormant/` the one waiting for Gate 1
 - `.claude/settings.json` deny rules and hooks that enforce the approval list
 
 ## Run locally

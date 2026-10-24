@@ -1,5 +1,7 @@
 # Faevra
 
+Team roles, handoffs and shared rules: @AGENTS.md
+
 Search Console traffic-drop reports for SEO freelancers and agencies. Solo founder, about 15 hours a week. Gate 1 is 2026-11-25, Gate 2 is 2026-12-20.
 
 ## Commands
