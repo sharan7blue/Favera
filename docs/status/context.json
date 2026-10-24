@@ -28,7 +28,8 @@
     "Analytics: Cloudflare Web Analytics chosen (24 Oct 2026); cookie-free claim unconfirmed until Cloudflare docs page is opened",
     "Tally form KpY948 created (24 Oct 2026); draft, not published; selfEmail notification set to sharanshekar16@gmail.com; index.html updated with real form URL",
     "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft committed to apps/web/privacy.html on branch week1/privacy-page",
-    "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2"
+    "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
+    "Session 3 (24 Oct 2026): UX, copy, dev, SEO, QA and sales-outreach rounds complete; all committed to week1/privacy-page; GitHub push still blocked by GitHub App install (task 23)"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
@@ -38,7 +39,7 @@
     "Install Claude GitHub App for the repo (push refused) and consider renaming repo Favera to faevra",
     "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
     "Report channel and time (email, push, or both; 07:00 daily or weekdays only)",
-    "Prospect list: 14 of 60 verified; more needs a browser-connected session or your own Companies House lookups",
+    "Prospect list: ~14 verified as of session 2; round 3 research underway (Rhea agent); target 40 by end of week 1",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/"
   ],
   "company": {
