@@ -10,7 +10,7 @@ Faevra sells plain-English Search Console traffic-drop reports to SEO freelancer
 | ![Rhea](assets/avatars/research-analyst.svg) Rhea | `research-analyst`   | Sourced research (research)                 | `sales-outreach`, `seo-specialist`, `copywriter`     |
 | ![Dev](assets/avatars/developer.svg) Dev | `developer`          | Site and app code (development)             | `qa-tester`                                          |
 | ![Uma](assets/avatars/ux-designer.svg) Uma | `ux-designer`        | Layout and accessibility (development)      | `developer`, `qa-tester`                             |
-| `data-engineer`      | Export parser, dormant until Gate 1 (development) | `report-reviewer`                              |
+| (dormant) | `data-engineer`      | Export parser, dormant until Gate 1 (development) | `report-reviewer`                              |
 | ![Quinn](assets/avatars/qa-tester.svg) Quinn | `qa-tester`          | Code, copy and claim checks (testing)       | `project-manager` on pass; the author on block       |
 | ![Ravi](assets/avatars/report-reviewer.svg) Ravi | `report-reviewer`    | Recomputes every report figure (testing)    | `project-manager`, then founder review               |
 | ![Sia](assets/avatars/seo-specialist.svg) Sia | `seo-specialist`     | Site SEO and traffic-drop reports (marketing) | `report-reviewer` (reports), `developer` (site changes) |
