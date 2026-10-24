@@ -1,11 +1,21 @@
-# Faevra: rules for every Claude session
+# Faevra
 
-- UK English. Plain words. No emoji.
-- Never mention the founder's day job or personal profiles in any copy, commit or file.
-- Work on branches named `week1/<task>` (later `weekN/<task>`). Never push to `main`.
-- Run the checks in `.github/workflows/ci.yml` locally before pushing.
-- Every factual claim in copy or reports links to its source with an as-of date. No invented numbers, testimonials or customers.
-- Client or agency data never enters this repo.
-- Always wait for the founder's approval before: merging to `main`; changing DNS, email or billing; sending or posting anything to anyone; spending money; accessing a client's Search Console.
-- Write a note to `docs/status/<YYYY-MM-DD>-<agent>.md` when a task finishes. If blocked, say so there instead of guessing.
-- Stop conditions: if a task needs more than its `maxTurns`, or the done-when is unclear, stop and report.
+Search Console traffic-drop reports for SEO freelancers and agencies. Solo founder, about 15 hours a week. Gate 1 is 2026-11-25, Gate 2 is 2026-12-20.
+
+## Commands
+- Run the site: `cd apps/web && python3 -m http.server 4321`
+- Lint HTML: `npx --yes htmlhint@1.1.4 "apps/web/**/*.html"`
+- Check links: `npx --yes linkinator@6.1.1 apps/web --recurse --skip "^https?://"`
+- Validate agents: `python3 scripts/validate_agents.py`
+
+## Workflow
+- Branch `weekN/<task>`; never push to `main`. A hook and a deny rule enforce this.
+- Run all four commands above before opening a pull request.
+- Write a note to `docs/status/<YYYY-MM-DD>-<agent>.md` when a task ends, or when blocked.
+
+## Founder approval is always required for
+Merging to `main`; DNS, email or billing changes; sending or posting anything to anyone; spending money; accessing a client's Search Console data.
+
+## Never
+- Mention the founder's day job or personal profiles anywhere.
+- Put client or agency data, secrets or personal prospect data in this repo.
