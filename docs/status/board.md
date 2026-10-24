@@ -11,4 +11,4 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 | 5 | Tally form linked to a sheet | developer | not started | test submission appears as a row and an email |
 | 6 | CI workflow | qa-tester | drafted, untested on GitHub | a broken link fails the check |
 | 7 | 60-agency prospect sheet | research-analyst | 13 verified (rows 1-13, Semetrical with caveat) + Blue Array = 14 of 60; rows 14-15 dropped; tools blocked more fetches, see round2 note | 60 rows with name, site, size, source, contact route |
-| 8 | Privacy page and short terms | copywriter | v2 draft passes QA (docs/drafts/privacy-and-terms-v2.md); waits for founder legal check and company details, then developer builds pages (build must fail on any leftover [CONFIRM) | live before any access request in week 4 |
+| 8 | Privacy page and short terms | copywriter | privacy.html built on branch week1/privacy-page (854bc90) from v3 draft; QA passed v3 for a non-live build; terms page not built; strict placeholder check must pass before launch (scripts/check_placeholders.py --strict) | live before any access request in week 4 |
