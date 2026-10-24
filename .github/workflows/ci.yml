@@ -22,3 +22,6 @@ jobs:
       - name: Warn if the form link is still a placeholder
         continue-on-error: true
         run: "! grep -rn REPLACE_ME apps/web"
+      - name: List unresolved placeholders (does not fail)
+        continue-on-error: true
+        run: python3 scripts/check_placeholders.py

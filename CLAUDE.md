@@ -9,6 +9,7 @@ Search Console traffic-drop reports for SEO freelancers and agencies. Solo found
 - Lint HTML: `npx --yes htmlhint@1.1.4 "apps/web/**/*.html"`
 - Check links: `npx --yes linkinator@6.1.1 apps/web --recurse --skip "^https?://"`
 - Validate agents: `python3 scripts/validate_agents.py`
+- Placeholders: `python3 scripts/check_placeholders.py --strict` # must pass before the noindex flip
 
 ## Workflow
 - Branch `weekN/<task>`; never push to `main`. A hook and a deny rule enforce this.
