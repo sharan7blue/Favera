@@ -64,6 +64,24 @@ footer.wrap { padding: 2rem 16px 3rem; }
   font-size: 0.95rem;
 }
 mark { background: #ffe58a; color: #1c1b19; padding: 0 0.15em; border-radius: 3px; }
+@media (prefers-color-scheme: dark) {
+  mark { background: #4a3800; color: #ffe58a; }
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 16px;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip-link:focus { left: 16px; }
+.hero .note { margin-top: 0.5rem; }
 .table-wrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
 th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); }
