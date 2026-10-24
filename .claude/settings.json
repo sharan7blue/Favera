@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push origin main*)",
+      "Bash(git push * main*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "mcp__Gmail__send_message",
+      "mcp__Gmail__forward",
+      "mcp__Gmail__reply"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "./scripts/hooks/block-main-push.sh" }
+        ]
+      }
+    ]
+  }
+}
