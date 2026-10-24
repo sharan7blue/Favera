@@ -24,16 +24,22 @@
     "Each role has an avatar in assets/avatars; QA verdicts recorded in docs/status/<date>-qa-tester.md",
     "AI crawlers blocked in robots.txt until launch; reminder 2 Nov 2026 09:00 UTC",
     "Favicon and og.png created",
-    "Founder declined an external legal check of the privacy and terms pages (24 Oct 2026); pages stay draft until founder accepts the wording himself"
+    "Founder declined an external legal check of the privacy and terms pages (24 Oct 2026); pages stay draft until founder accepts the wording himself",
+    "Analytics: Cloudflare Web Analytics chosen (24 Oct 2026); cookie-free claim unconfirmed until Cloudflare docs page is opened",
+    "Tally form KpY948 created (24 Oct 2026); draft, not published; selfEmail notification set to sharanshekar16@gmail.com; index.html updated with real form URL",
+    "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft committed to apps/web/privacy.html on branch week1/privacy-page",
+    "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2"
   ],
   "open_for_founder": [
-    "Where faevra.io is registered",
-    "Report channel and time",
-    "Empty private repo sharan7blue/faevra to push to",
-    "Review branch week1/site-polish (not pushed)",
+    "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
+    "Confirm Cloudflare Web Analytics is cookie-free: open https://developers.cloudflare.com/web-analytics/ and share the answer",
+    "Check Tally form cookies in a private browser window before launch",
+    "Publish the Tally form when ready: https://tally.so/forms/KpY948/edit",
     "Install Claude GitHub App for the repo (push refused) and consider renaming repo Favera to faevra",
-    "Prospect list: 14 of 60 verified; Rhea's fetch tools were blocked, so more needs a browser-connected session or your own Companies House lookups",
-    "Legal check of the v2 privacy and terms draft; confirm England and Wales; confirm what contact email goes on the site"
+    "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
+    "Report channel and time (email, push, or both; 07:00 daily or weekdays only)",
+    "Prospect list: 14 of 60 verified; more needs a browser-connected session or your own Companies House lookups",
+    "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/"
   ],
   "company": {
     "name": "FAEVRA LTD",
@@ -44,5 +50,46 @@
     "source": "https://find-and-update.company-information.service.gov.uk/company/17534431",
     "as_of": "2026-10-24",
     "jurisdiction_note": "Confirmed by founder 24 Oct 2026: registered in England and Wales."
+  },
+  "tally": {
+    "form_id": "KpY948",
+    "edit_url": "https://tally.so/forms/KpY948/edit",
+    "share_url": "https://tally.so/r/KpY948",
+    "status": "draft — not published",
+    "notification_email": "sharanshekar16@gmail.com",
+    "fields": ["Your name", "Agency or company name", "Agency website", "Work email address", "Typical monthly SEO retainer size (multiple choice)", "Biggest pain when a client's traffic drops (open text)"],
+    "note": "Custom subject/body for notification email needs Tally Pro. Publish in Tally dashboard before launch."
+  },
+  "privacy": {
+    "current_draft": "docs/drafts/privacy-notice-v4.md",
+    "html_file": "apps/web/privacy.html",
+    "branch": "week1/privacy-page",
+    "version": 4,
+    "unresolved_confirms": [
+      "[CONTACT EMAIL]",
+      "[LAST UPDATED DATE]",
+      "[CONFIRM: Cloudflare Web Analytics cookie-free]",
+      "[CONFIRM: Tally cookies]",
+      "[CONFIRM: cookies check]",
+      "[CONFIRM: Cloudflare logging]",
+      "[CONFIRM: Cloudflare data and country]",
+      "[CONFIRM: Google Workspace data and country]",
+      "[CONFIRM: Tally data and country]"
+    ],
+    "tally_facts_verified": {
+      "source": "https://tally.so/help/privacy-policy (2026-10-24)",
+      "entity": "Tally BV, Belgium",
+      "data_location": "EU servers (stated)",
+      "sub_processor_for_bot_protection": "Cloudflare Inc., US"
+    }
+  },
+  "terms": {
+    "html_file": "apps/web/terms.html",
+    "branch": "week1/privacy-page",
+    "status": "stub",
+    "unresolved_confirms": [
+      "[CONFIRM: pricing, payment terms and refund policy]",
+      "[CONFIRM: liability cap]"
+    ]
   }
 }
