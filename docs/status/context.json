@@ -29,9 +29,19 @@
     "Where faevra.io is registered",
     "Report channel and time",
     "Empty private repo sharan7blue/faevra to push to",
-    "Legal check of draft privacy and terms (docs/drafts/privacy-and-terms.md) and company number and address",
     "Review branch week1/site-polish (not pushed)",
     "Install Claude GitHub App for the repo (push refused) and consider renaming repo Favera to faevra",
-    "Prospect list: 14 of 60 verified; Rhea's fetch tools were blocked, so more needs a browser-connected session or your own Companies House lookups"
-  ]
+    "Prospect list: 14 of 60 verified; Rhea's fetch tools were blocked, so more needs a browser-connected session or your own Companies House lookups",
+    "Legal check of the v2 privacy and terms draft; confirm England and Wales; confirm what contact email goes on the site"
+  ],
+  "company": {
+    "name": "FAEVRA LTD",
+    "number": "17534431",
+    "type": "Private limited company",
+    "incorporated": "2026-10-21",
+    "registered_office": "66 Paul Street, London, England, United Kingdom, EC2A 4NA",
+    "source": "https://find-and-update.company-information.service.gov.uk/company/17534431",
+    "as_of": "2026-10-24",
+    "jurisdiction_note": "Page does not state jurisdiction; 8-digit number with no prefix indicates England and Wales. Founder to confirm."
+  }
 }
