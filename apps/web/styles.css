@@ -1,20 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 :root {
   color-scheme: light dark;
   --bg: #fbfaf8;
+  --bg-subtle: #f4f2ed;
   --text: #1c1b19;
   --quiet: #5b5852;
   --accent: #1f5fd1;
   --accent-text: #ffffff;
   --rule: #e3e0da;
+  --focus: #1f5fd1;
+  /* Semantic tokens — wire up when app UI launches at Gate 1 */
+  /* --success: tbd; --warning: tbd; --error: tbd; */
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #161513;
+    --bg-subtle: #1e1c1a;
     --text: #f1efea;
     --quiet: #a9a59c;
     --accent: #6a9bff;
     --accent-text: #0e0d0c;
     --rule: #2c2a26;
+    --focus: #6a9bff;
   }
 }
 * { box-sizing: border-box; }
@@ -25,37 +32,57 @@ body {
   font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 .wrap { max-width: 40rem; margin: 0 auto; padding: 0 16px; }
-header.wrap { padding-top: 24px; }
+header.wrap { padding-top: 24px; padding-bottom: 8px; }
 .brand { font-weight: 700; letter-spacing: 0.02em; margin: 0; }
+.brand a { color: inherit; text-decoration: none; }
+.brand a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
 h1, h2 { text-wrap: balance; }
-h1 { font-size: 2.1rem; line-height: 1.15; margin: 2.5rem 0 1rem; }
-h2 { font-size: 1.25rem; margin: 2.5rem 0 0.5rem; }
-.lead { font-size: 1.15rem; text-wrap: pretty; }
+h1 { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 2.1rem; font-weight: 400; line-height: 1.15; margin: 2.5rem 0 1rem; }
+h2 { font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 0.5rem; }
+.lead { font-size: 1.15rem; text-wrap: pretty; margin-top: 0; }
 .note { color: var(--quiet); font-size: 0.95rem; }
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button:active { transform: none; }
+}
+/* CTA button */
 .button {
   display: inline-block;
   background: var(--accent);
-  color: var(--accent-text);
-  padding: 0.7rem 1.2rem;
+  color: var(--accent-text) !important;
+  padding: 0.75rem 1.4rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: filter 0.1s ease;
 }
 .button:hover { filter: brightness(1.08); }
 .button:active { transform: translateY(1px); }
 .button:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
-a:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+/* General links */
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+/* Layout sections */
+section { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+section.hero { border-top: 0; padding-top: 0; background: var(--bg-subtle); margin: 0 -16px; padding-left: 16px; padding-right: 16px; padding-bottom: 2.5rem; }
+#example:empty { display: none; }
+section ul, section ol { padding-left: 1.25rem; }
+section li { margin-bottom: 0.4rem; }
+/* Mobile */
 @media (max-width: 480px) {
   .button { display: block; text-align: center; padding: 0.9rem 1.2rem; }
   h1 { font-size: 1.9rem; margin-top: 1.75rem; }
-  h2 { margin-top: 2rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; }
+  section.hero { margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
 }
-section { border-top: 1px solid var(--rule); }
-section.hero { border-top: 0; }
-footer.wrap { padding: 2rem 16px 3rem; }
-.brand a { color: inherit; text-decoration: none; }
+footer.wrap { padding: 2rem 16px 3rem; border-top: 1px solid var(--rule); }
+/* Legal pages */
 .legal h1 { margin-top: 1.5rem; }
 .legal ul { padding-left: 1.25rem; }
+.legal li { margin-bottom: 0.3rem; }
 .draft-banner {
   border: 2px solid var(--text);
   border-radius: 8px;
@@ -67,6 +94,7 @@ mark { background: #ffe58a; color: #1c1b19; padding: 0 0.15em; border-radius: 3p
 @media (prefers-color-scheme: dark) {
   mark { background: #4a3800; color: #ffe58a; }
 }
+/* Skip link */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -82,6 +110,8 @@ mark { background: #ffe58a; color: #1c1b19; padding: 0 0.15em; border-radius: 3p
 }
 .skip-link:focus { left: 16px; }
 .hero .note { margin-top: 0.5rem; }
+/* Data table */
 .table-wrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
 th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; }
