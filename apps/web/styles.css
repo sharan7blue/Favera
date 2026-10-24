@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light dark;
   --bg: #fbfaf8;
   --text: #1c1b19;
   --quiet: #5b5852;
@@ -26,9 +27,10 @@ body {
 .wrap { max-width: 40rem; margin: 0 auto; padding: 0 16px; }
 header.wrap { padding-top: 24px; }
 .brand { font-weight: 700; letter-spacing: 0.02em; margin: 0; }
+h1, h2 { text-wrap: balance; }
 h1 { font-size: 2.1rem; line-height: 1.15; margin: 2.5rem 0 1rem; }
 h2 { font-size: 1.25rem; margin: 2.5rem 0 0.5rem; }
-.lead { font-size: 1.15rem; }
+.lead { font-size: 1.15rem; text-wrap: pretty; }
 .note { color: var(--quiet); font-size: 0.95rem; }
 .button {
   display: inline-block;
@@ -39,7 +41,15 @@ h2 { font-size: 1.25rem; margin: 2.5rem 0 0.5rem; }
   text-decoration: none;
   font-weight: 600;
 }
-.button:focus-visible, a:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+.button:hover { filter: brightness(1.08); }
+.button:active { transform: translateY(1px); }
+.button:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+@media (max-width: 480px) {
+  .button { display: block; text-align: center; padding: 0.9rem 1.2rem; }
+  h1 { font-size: 1.9rem; margin-top: 1.75rem; }
+  h2 { margin-top: 2rem; }
+}
 section { border-top: 1px solid var(--rule); }
 section.hero { border-top: 0; }
 footer.wrap { padding: 2rem 16px 3rem; }
