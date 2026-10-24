@@ -38,6 +38,11 @@ agents_md = open("AGENTS.md", encoding="utf-8").read() if os.path.exists("AGENTS
 for name in descriptions:
     if f"`{name}`" not in agents_md:
         errors.append(f"AGENTS.md does not list role {name}")
+import json
+try:
+    json.load(open("docs/status/context.json", encoding="utf-8"))
+except Exception as e:
+    errors.append(f"docs/status/context.json: {e}")
 if errors:
     print("\n".join(errors)); sys.exit(1)
 print(f"{len(descriptions)} agents valid")

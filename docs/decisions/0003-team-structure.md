@@ -12,3 +12,5 @@ What changed from the first version:
 - A data engineer was added to development but stays dormant in `.claude/agents-dormant/` until Gate 1, so its description does not cost context or compete for routing now.
 
 Review at day 30: drop any role whose notes in `docs/status/` show it did little.
+
+Orchestration pattern (added the same day at the founder's request): a single orchestrator, `project-manager`, is the only entry point and the only agent that talks to the founder; failures bubble up to it; all agents read `docs/status/context.json` and only it writes the file, enforced by hooks.

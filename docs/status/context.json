@@ -1,0 +1,20 @@
+{
+  "updated": "2026-10-24",
+  "phase": "week 1: set-up and prospect list (22 to 28 Oct)",
+  "gates": {
+    "gate1": { "date": "2026-11-25", "pass": "3 agencies give read-only Search Console access or ask for a second report" },
+    "gate2": { "date": "2026-12-20", "pass": "3 paying agencies or 5 written commitments" }
+  },
+  "targets": { "month12_mrr_gbp": 4000, "month24_mrr_gbp": 8000, "founder_hours_per_week": 15 },
+  "board": "docs/status/board.md",
+  "decisions": [
+    "Site is plain HTML and CSS on Cloudflare Pages",
+    "No separate sending domain; first 30 emails go by hand from the main mailbox",
+    "Claude is the default model for every role"
+  ],
+  "open_for_founder": [
+    "Where faevra.io is registered",
+    "Report channel and time",
+    "Empty private repo sharan7blue/faevra to push to"
+  ]
+}

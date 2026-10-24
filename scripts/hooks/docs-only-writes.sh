@@ -5,6 +5,9 @@ input="$(cat)"
 path="$(printf '%s' "$input" | sed -n 's/.*"file_path"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -n1)"
 case "$path" in
   "" ) exit 0 ;;
+  */docs/status/context.json|docs/status/context.json)
+    echo "Blocked: only the project-manager writes docs/status/context.json. Put your update in your own status note." >&2
+    exit 2 ;;
   */docs/*|docs/*|*/.claude/agent-memory/*|.claude/agent-memory/*) exit 0 ;;
 esac
 echo "Blocked: this agent may only write under docs/. Hand code and site changes to the developer through docs/status." >&2
