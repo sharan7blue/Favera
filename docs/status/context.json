@@ -22,24 +22,22 @@
     "No separate sending domain; first 30 emails go by hand from the main mailbox",
     "Claude is the default model for every role",
     "Each role has an avatar in assets/avatars; QA verdicts recorded in docs/status/<date>-qa-tester.md",
-    "AI crawlers blocked in robots.txt until launch; reminder 2 Nov 2026 09:00 UTC",
-    "Favicon and og.png created",
     "Founder declined an external legal check of the privacy and terms pages (24 Oct 2026); pages stay draft until founder accepts the wording himself",
     "Analytics: Cloudflare Web Analytics chosen (24 Oct 2026); cookie-free claim unconfirmed until Cloudflare docs page is opened",
     "Tally form KpY948 created (24 Oct 2026); draft, not published; selfEmail notification set to sharanshekar16@gmail.com; index.html updated with real form URL",
-    "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft committed to apps/web/privacy.html on branch week1/privacy-page",
+    "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft in apps/web/privacy.html",
     "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
-    "Session 3 (24 Oct 2026): UX, copy, dev, SEO, QA and sales-outreach rounds complete; all committed to week1/privacy-page; GitHub push still blocked by GitHub App install (task 23)"
+    "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
     "Confirm Cloudflare Web Analytics is cookie-free: open https://developers.cloudflare.com/web-analytics/ and share the answer",
     "Check Tally form cookies in a private browser window before launch",
     "Publish the Tally form when ready: https://tally.so/forms/KpY948/edit",
-    "Install Claude GitHub App for the repo (push refused) and consider renaming repo Favera to faevra",
+    "Install Claude GitHub App at https://github.com/apps/claude for repo sharan7blue/Favera (or rename repo to faevra first) — this is the only blocker for a preview link",
     "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
-    "Report channel and time (email, push, or both; 07:00 daily or weekdays only)",
-    "Prospect list: ~14 verified as of session 2; round 3 research underway (Rhea agent); target 40 by end of week 1",
+    "Create OG image (1200x630 px) and save as apps/web/og.png before launch",
+    "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/"
   ],
   "company": {
@@ -62,17 +60,15 @@
     "note": "Custom subject/body for notification email needs Tally Pro. Publish in Tally dashboard before launch."
   },
   "privacy": {
-    "current_draft": "docs/drafts/privacy-notice-v4.md",
     "html_file": "apps/web/privacy.html",
-    "branch": "week1/privacy-page",
     "version": 4,
     "unresolved_confirms": [
       "[CONTACT EMAIL]",
       "[LAST UPDATED DATE]",
-      "[CONFIRM: Cloudflare Web Analytics cookie-free]",
-      "[CONFIRM: Tally cookies]",
       "[CONFIRM: cookies check]",
+      "[CONFIRM: Cloudflare Web Analytics cookie-free]",
       "[CONFIRM: Cloudflare logging]",
+      "[CONFIRM: Tally cookies]",
       "[CONFIRM: Cloudflare data and country]",
       "[CONFIRM: Google Workspace data and country]",
       "[CONFIRM: Tally data and country]"
@@ -86,11 +82,20 @@
   },
   "terms": {
     "html_file": "apps/web/terms.html",
-    "branch": "week1/privacy-page",
     "status": "stub",
     "unresolved_confirms": [
       "[CONFIRM: pricing, payment terms and refund policy]",
       "[CONFIRM: liability cap]"
+    ]
+  },
+  "prospects": {
+    "target": 60,
+    "verified": 20,
+    "partial": 2,
+    "files": [
+      "docs/status/2026-10-24-research-analyst.md",
+      "docs/status/2026-10-24-research-analyst-round2.md",
+      "docs/status/2026-10-24-research-analyst-round3.md"
     ]
   }
 }
