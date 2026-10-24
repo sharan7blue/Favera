@@ -23,7 +23,8 @@
     "Claude is the default model for every role",
     "Each role has an avatar in assets/avatars; QA verdicts recorded in docs/status/<date>-qa-tester.md",
     "AI crawlers blocked in robots.txt until launch; reminder 2 Nov 2026 09:00 UTC",
-    "Favicon and og.png created"
+    "Favicon and og.png created",
+    "Founder declined an external legal check of the privacy and terms pages (24 Oct 2026); pages stay draft until founder accepts the wording himself"
   ],
   "open_for_founder": [
     "Where faevra.io is registered",
@@ -42,6 +43,6 @@
     "registered_office": "66 Paul Street, London, England, United Kingdom, EC2A 4NA",
     "source": "https://find-and-update.company-information.service.gov.uk/company/17534431",
     "as_of": "2026-10-24",
-    "jurisdiction_note": "Page does not state jurisdiction; 8-digit number with no prefix indicates England and Wales. Founder to confirm."
+    "jurisdiction_note": "Confirmed by founder 24 Oct 2026: registered in England and Wales."
   }
 }
