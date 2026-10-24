@@ -21,15 +21,17 @@
     "Site is plain HTML and CSS on Cloudflare Pages",
     "No separate sending domain; first 30 emails go by hand from the main mailbox",
     "Claude is the default model for every role",
-    "Each role has an avatar in assets/avatars; QA verdicts recorded in docs/status/<date>-qa-tester.md"
+    "Each role has an avatar in assets/avatars; QA verdicts recorded in docs/status/<date>-qa-tester.md",
+    "AI crawlers blocked in robots.txt until launch; reminder 2 Nov 2026 09:00 UTC",
+    "Favicon and og.png created"
   ],
   "open_for_founder": [
     "Where faevra.io is registered",
     "Report channel and time",
     "Empty private repo sharan7blue/faevra to push to",
     "Legal check of draft privacy and terms (docs/drafts/privacy-and-terms.md) and company number and address",
-    "Supply favicon.svg and og.png, or approve Dev making simple ones",
-    "Allow or block AI crawlers (Sia recommends allow)",
-    "Review branch week1/site-polish (not pushed)"
+    "Review branch week1/site-polish (not pushed)",
+    "Install Claude GitHub App for the repo (push refused) and consider renaming repo Favera to faevra",
+    "Prospect list: 14 of 60 verified; Rhea's fetch tools were blocked, so more needs a browser-connected session or your own Companies House lookups"
   ]
 }

@@ -10,5 +10,5 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 | 4 | Page copy | copywriter | draft in `apps/web/index.html`; UX and SEO fixes applied on branch week1/site-polish (e0e51fd) | founder happy to send the link |
 | 5 | Tally form linked to a sheet | developer | not started | test submission appears as a row and an email |
 | 6 | CI workflow | qa-tester | drafted, untested on GitHub | a broken link fails the check |
-| 7 | 60-agency prospect sheet | research-analyst | pilot: 8 of 15 rows verified by QA (rows 9-15 unverified, do not use); 52 to go | 60 rows with name, site, size, source, contact route |
-| 8 | Privacy page and short terms | copywriter | draft written, QA BLOCK: unsourced legal claims; needs founder legal check | live before any access request in week 4 |
+| 7 | 60-agency prospect sheet | research-analyst | 13 verified (rows 1-13, Semetrical with caveat) + Blue Array = 14 of 60; rows 14-15 dropped; tools blocked more fetches, see round2 note | 60 rows with name, site, size, source, contact route |
+| 8 | Privacy page and short terms | copywriter | v2 draft passes QA (docs/drafts/privacy-and-terms-v2.md); waits for founder legal check and company details, then developer builds pages (build must fail on any leftover [CONFIRM) | live before any access request in week 4 |

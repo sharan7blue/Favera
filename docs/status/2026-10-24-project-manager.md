@@ -11,3 +11,8 @@
 | Ravi, report-reviewer, Sol, sales-outreach | No task: no report or verified prospects yet | n/a |
 
 Needs you: see open_for_founder in context.json.
+
+## Round two
+- Rhea: rows 9-15 checked (13 verified, 2 dropped), 1 new agency; target 60 not met. Fetch tools blocked.
+- Cass: v2 legal draft; Quinn PASS for founder legal check. Non-blocking: reword the self-assessment bullet; cookies claim verified for index.html only.
+- Dev: page build on hold until legal check and placeholders are filled.
