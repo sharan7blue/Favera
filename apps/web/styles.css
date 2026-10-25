@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap');
 :root {
   color-scheme: light dark;
   --bg: #fbfaf8;
   --bg-subtle: #f4f2ed;
   --text: #1c1b19;
   --quiet: #5b5852;
-  --accent: #1f5fd1;
+  --accent: #d95c1a;
   --accent-text: #ffffff;
   --rule: #e3e0da;
-  --focus: #1f5fd1;
+  --focus: #d95c1a;
   /* Semantic tokens — wire up when app UI launches at Gate 1 */
   /* --success: tbd; --warning: tbd; --error: tbd; */
 }
@@ -18,10 +18,10 @@
     --bg-subtle: #1e1c1a;
     --text: #f1efea;
     --quiet: #a9a59c;
-    --accent: #6a9bff;
+    --accent: #f5834a;
     --accent-text: #0e0d0c;
     --rule: #2c2a26;
-    --focus: #6a9bff;
+    --focus: #f5834a;
   }
 }
 * { box-sizing: border-box; }
