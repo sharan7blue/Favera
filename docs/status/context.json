@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-27",
   "phase": "week 1: set-up and prospect list (22 to 28 Oct)",
   "gates": {
     "gate1": {
@@ -27,7 +27,8 @@
     "Tally form KpY948 created (24 Oct 2026); draft, not published; selfEmail notification set to sharanshekar16@gmail.com; index.html updated with real form URL",
     "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft in apps/web/privacy.html",
     "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
-    "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)"
+    "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)",
+    "Session 4 (27 Oct 2026): round 4 prospect research complete; 28 verified agencies; articles section concept added to board (tasks 14 and 15); awaiting founder confirmation on URL path and format"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
@@ -38,7 +39,8 @@
     "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
     "Create OG image (1200x630 px) and save as apps/web/og.png before launch",
     "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
-    "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/"
+    "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/",
+    "Articles section (tasks 14-15): confirm URL path (faevra.io/articles?), article format (data studies / keyword guides / both), and whether Sia should start topic research now"
   ],
   "company": {
     "name": "FAEVRA LTD",
@@ -88,14 +90,26 @@
       "[CONFIRM: liability cap]"
     ]
   },
+  "articles": {
+    "status": "concept — pending founder confirmation",
+    "requested": "2026-10-27",
+    "concept": "Articles section on faevra.io as traffic and lead source; high-quality data articles mapped to SEO keywords; topics selected via Google Trends and keyword research by Sia (seo-specialist)",
+    "board_tasks": [14, 15],
+    "open_questions": [
+      "URL path (faevra.io/articles?)",
+      "Article format (data studies, keyword guides, both?)",
+      "Confirm Sia starts topic research now"
+    ]
+  },
   "prospects": {
     "target": 60,
-    "verified": 20,
-    "partial": 2,
+    "verified": 28,
+    "partial": 7,
     "files": [
       "docs/status/2026-10-24-research-analyst.md",
       "docs/status/2026-10-24-research-analyst-round2.md",
-      "docs/status/2026-10-24-research-analyst-round3.md"
+      "docs/status/2026-10-24-research-analyst-round3.md",
+      "docs/status/2026-10-27-research-analyst.md"
     ]
   }
 }
