@@ -28,7 +28,7 @@
     "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft in apps/web/privacy.html",
     "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
     "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)",
-    "Session 4 (27 Oct 2026): round 4 prospect research complete; 28 verified agencies; articles section concept added to board (tasks 14 and 15); awaiting founder confirmation on URL path and format"
+    "Session 4 (27 Oct 2026): 28 verified prospects; articles section added (tasks 14-16); URL path faevra.io/articles confirmed; format both data studies and keyword guides; no CMS — plain HTML files; 3 article drafts due Fri 31 Oct"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
@@ -40,7 +40,7 @@
     "Create OG image (1200x630 px) and save as apps/web/og.png before launch",
     "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/",
-    "Articles section (tasks 14-15): confirm URL path (faevra.io/articles?), article format (data studies / keyword guides / both), and whether Sia should start topic research now"
+    "Authorise access to a keyword research tool (Ahrefs, Semrush or Google Keyword Planner) so article keyword volumes can be confirmed before copy is finalised"
   ],
   "company": {
     "name": "FAEVRA LTD",
@@ -91,15 +91,14 @@
     ]
   },
   "articles": {
-    "status": "concept — pending founder confirmation",
-    "requested": "2026-10-27",
-    "concept": "Articles section on faevra.io as traffic and lead source; high-quality data articles mapped to SEO keywords; topics selected via Google Trends and keyword research by Sia (seo-specialist)",
-    "board_tasks": [14, 15],
-    "open_questions": [
-      "URL path (faevra.io/articles?)",
-      "Article format (data studies, keyword guides, both?)",
-      "Confirm Sia starts topic research now"
-    ]
+    "status": "in progress",
+    "url_path": "faevra.io/articles",
+    "format": "both — data studies and keyword guides",
+    "cms": "none — plain HTML files, same CSS as main site; one .html file per article in apps/web/articles/",
+    "friday_target": "3 article drafts by 31 Oct 2026 (keyword guides 6, 8, 7 from Sia’s brief)",
+    "briefs_file": "docs/status/2026-10-27-seo-specialist.md",
+    "board_tasks": [14, 15, 16],
+    "data_studies_gate": "data studies 1–5 cannot be written until Gate 1 client data available (2026-11-25 at earliest)"
   },
   "prospects": {
     "target": 60,
