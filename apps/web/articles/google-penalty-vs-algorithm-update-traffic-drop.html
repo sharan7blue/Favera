@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Penalty vs Algorithm Update vs Technical Issue: How to Tell Them Apart — Faevra</title>
+  <meta name="description" content="How to correctly classify a traffic drop as a manual penalty, algorithm update or technical issue — because the diagnosis determines the fix.">
+  <link rel="canonical" href="https://faevra.io/articles/google-penalty-vs-algorithm-update-traffic-drop">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Faevra">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://faevra.io/articles/google-penalty-vs-algorithm-update-traffic-drop">
+  <meta property="og:title" content="Google Penalty vs Algorithm Update vs Technical Issue: How to Tell Them Apart — Faevra">
+  <meta property="og:description" content="How to correctly classify a traffic drop as a manual penalty, algorithm update or technical issue — because the diagnosis determines the fix.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="wrap">
+    <p class="brand"><a href="/">Faevra</a></p>
+  </header>
+  <main class="wrap" id="main-content">
+
+    <div class="draft-banner"><strong>Draft — not yet published.</strong> This article is in review.</div>
+
+    <section class="hero">
+      <h1>Google Penalty vs Algorithm Update vs Technical Issue: How to Tell Them Apart</h1>
+      <p class="lead">Misclassifying the cause of a traffic drop is one of the most expensive mistakes an SEO can make. The fix depends entirely on the diagnosis — and the three main causes each need a different response.</p>
+      <p class="note">By Faevra &middot; Published 2026-10-27</p>
+    </section>
+
+    <section>
+      <p>A manual penalty needs a disavow or a reconsideration request. An algorithm update needs content work. A technical issue needs a developer. Get the classification wrong and you spend months working on the wrong thing — and your client's traffic does not come back.</p>
+
+      <p>The three causes share one symptom: clicks fall. Beyond that, they behave very differently. This guide explains the distinguishing signs of each, how to check for them in Google Search Console, and a simple decision tree you can run through in under an hour.</p>
+    </section>
+
+    <section>
+      <h2>What a manual penalty looks like</h2>
+      <p>A manual penalty (Google calls it a "manual action") is issued by a member of Google's spam team, not by an algorithm. It is applied when a site violates Google's spam policies — for example, through unnatural link building, thin or automatically generated content, or hidden text.</p>
+
+      <p>The distinguishing characteristics are:</p>
+      <ul>
+        <li>Traffic drops sharply, often within a day or two, rather than fading gradually over weeks.</li>
+        <li>The drop is often localised — to a single domain, a particular section of the site, or a specific type of content.</li>
+        <li>Google Search Console shows a notification in the <strong>Manual Actions</strong> report.</li>
+      </ul>
+
+      <p>To check: open Google Search Console, go to <strong>Security &amp; Manual Actions</strong> in the left-hand menu, then click <strong>Manual Actions</strong>. If a manual action is present, the report will list the action type, the affected pages or sitewide scope, and the date it was applied.</p>
+
+      <p>If the Manual Actions report shows "No issues detected", a manual penalty is not the cause. This check takes under a minute and should always be the first thing you do when a traffic drop is reported.</p>
+    </section>
+
+    <section>
+      <h2>What an algorithmic hit looks like</h2>
+      <p>Most significant traffic drops are not manual penalties — they are the result of Google's algorithm reassessing how a site or its pages rank for particular queries. Google makes thousands of changes to its ranking systems each year, ranging from minor adjustments that barely register to major "core updates" that can shift rankings across entire sectors. <span class="note">(Source: <a href="https://www.searchenginejournal.com/google-algorithm-history/">Search Engine Journal, Google Algorithm History</a>, accessed 2026-10-27)</span></p>
+
+      <p>Google confirmed ten algorithm updates in 2022 alone. <span class="note">(Source: <a href="https://www.semrush.com/blog/seo-statistics/">Semrush blog, SEO statistics</a>, citing Semrush 2023 State of Search, accessed 2026-10-27)</span> Core updates are broader in scope and typically have a named rollout period — the March 2024 core update took approximately 45 days to complete <span class="note">(Source: <a href="https://www.searchenginejournal.com/google-algorithm-history/">Search Engine Journal, Google Algorithm History</a>, accessed 2026-10-27)</span>.</p>
+
+      <p>The distinguishing characteristics of an algorithmic hit are:</p>
+      <ul>
+        <li>Traffic drops across multiple pages and multiple query types — not just one section of the site.</li>
+        <li>The date of the drop aligns with a known update rollout. Search Engine Journal's algorithm history page <span class="note">(<a href="https://www.searchenginejournal.com/google-algorithm-history/">searchenginejournal.com/google-algorithm-history/</a>, accessed 2026-10-27)</span> lists confirmed updates with their start and end dates.</li>
+        <li>The Manual Actions report shows nothing.</li>
+        <li>The Coverage report shows no sudden spike in indexing errors around the same date.</li>
+      </ul>
+
+      <p>An algorithmic hit is not a notification event — Google does not tell you it has downranked your pages. You infer it from the pattern: sitewide traffic loss starting during a confirmed update rollout, with no technical or manual-action explanation. Recovery requires identifying what the update assessed — content quality, authority, helpfulness, spam — and improving in that dimension. There is no reconsideration request for an algorithmic hit; the site must earn its way back.</p>
+    </section>
+
+    <section>
+      <h2>What a technical issue looks like</h2>
+      <p>A technical issue is a change to the site's infrastructure, configuration or code that prevents Google from crawling, indexing or rendering pages correctly. Unlike an algorithm update, a technical cause is something the site's team introduced — intentionally or not.</p>
+
+      <p>The distinguishing characteristics are:</p>
+      <ul>
+        <li>Traffic drops suddenly, often on a specific date that corresponds to a site deployment, a hosting change or a configuration edit.</li>
+        <li>The Coverage report in Search Console shows a spike in index errors, a rise in excluded pages, or a drop in valid indexed pages starting around the same date.</li>
+        <li>The affected pages tend to be clustered — all paginated pages, all product URLs with a certain parameter, all posts in one category — rather than distributed randomly across the site.</li>
+        <li>The Manual Actions report shows nothing, and the drop date does not align with a known Google update.</li>
+      </ul>
+
+      <p>Common technical causes include: a noindex meta tag or HTTP header accidentally applied to a group of pages; a robots.txt change blocking Googlebot from crawling key sections; a canonical tag configured to point pages to a different URL, consolidating ranking signals away from the pages you intended to rank; server errors returning 5xx responses to Googlebot; and redirects that break or change in ways that strip accumulated authority from previously ranking pages.</p>
+
+      <p>Technical issues are usually faster to fix than algorithmic ones once identified, but the recovery timeline depends on how quickly Google re-crawls and re-indexes the corrected pages. For a large site, that can still take weeks.</p>
+    </section>
+
+    <section>
+      <h2>A simple decision tree</h2>
+      <p>Work through these questions in order. Stop when you have your answer.</p>
+
+      <ol>
+        <li><strong>Does the Manual Actions report show a message?</strong> If yes: this is a manual penalty. The report will tell you what type and what pages are affected. Fix the underlying issue, then submit a reconsideration request through Search Console.</li>
+        <li><strong>Does the drop date align with a known Google core update?</strong> If yes, and the Manual Actions report is clear: this is likely algorithmic. The response is content and authority improvement, not a reconsideration request.</li>
+        <li><strong>Does the Coverage report show new errors, a spike in excluded pages, or a drop in indexed pages around the drop date?</strong> If yes: this is likely a technical issue. Identify which pages are affected and cross-reference with recent deployment or configuration changes.</li>
+        <li><strong>None of the above applies?</strong> The cause is less straightforward — it may be a combination of factors, a slow competitive decline, or an unannounced algorithmic change. This warrants a more detailed analysis across all three dimensions rather than a quick classification.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>What the wrong diagnosis costs</h2>
+      <p>The cost of misclassification is not abstract. If you diagnose a technical issue as an algorithm update, your client may spend months improving content on pages that Google cannot see because of an indexing block. If you diagnose an algorithm update as a manual penalty and submit a reconsideration request, Google's spam team will review the site and find no manual action — but the process raises questions and can feel to the client like something more serious is underway.</p>
+
+      <p>Conversely, if you correctly identify a manual penalty early, you can stop further link-building activity, fix the underlying problem and submit a reconsideration request within weeks. If you misread it as an algorithmic issue and start rewriting content, the penalty stays in place and the client's traffic continues to fall while you work on the wrong thing.</p>
+
+      <p>Getting the classification right before you start any remediation work is not a preliminary step — it is the work.</p>
+    </section>
+
+    <section>
+      <h2>When the classification is not straightforward</h2>
+      <p>It is worth acknowledging that some drops involve more than one cause. A site that was already borderline from a content-quality perspective might tip into a meaningful traffic loss during a core update and, separately, have a technical crawling issue introduced by a deployment in the same month. Both are real, both are contributing, and the remediation for each is different.</p>
+
+      <p>The decision tree above will surface the clearest signal first. But if you find evidence of more than one cause, treat them as separate investigations and track the timeline of each independently. The worst outcome is a combined explanation delivered to the client as "it could be one of several things" — that is not a diagnosis, it is a delay.</p>
+
+      <a class="button" href="/">Request a free report</a>
+
+      <p class="note">A Faevra report explicitly classifies the drop cause — manual penalty, algorithmic, technical, or a combination — so you know what to fix before you start any remediation work.</p>
+    </section>
+
+  </main>
+  <footer class="wrap">
+    <p class="note">&copy; 2026 Faevra Ltd &middot; <a href="/privacy.html">Privacy notice</a> &middot; <a href="/terms.html">Terms of service</a></p>
+  </footer>
+</body>
+</html>

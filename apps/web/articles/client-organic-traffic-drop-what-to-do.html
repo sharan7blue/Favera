@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What to Do When a Client's Organic Traffic Drops: A Guide for SEO Agencies — Faevra</title>
+  <meta name="description" content="A practical triage for SEO agencies: what to check, what to tell the client, and what not to do in the first 24 hours after a traffic drop.">
+  <link rel="canonical" href="https://faevra.io/articles/client-organic-traffic-drop-what-to-do">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Faevra">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://faevra.io/articles/client-organic-traffic-drop-what-to-do">
+  <meta property="og:title" content="What to Do When a Client's Organic Traffic Drops: A Guide for SEO Agencies — Faevra">
+  <meta property="og:description" content="A practical triage sequence for SEO agencies: what to check, what to say to the client, and what not to do in the first 24 hours after a traffic drop is reported.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="wrap">
+    <p class="brand"><a href="/">Faevra</a></p>
+  </header>
+  <main class="wrap" id="main-content">
+
+    <div class="draft-banner"><strong>Draft — not yet published.</strong> This article is in review.</div>
+
+    <section class="hero">
+      <h1>What to Do When a Client's Organic Traffic Drops: A Guide for SEO Agencies</h1>
+      <p class="lead">A client has just sent you a screenshot of their Analytics. Traffic is down. Your inbox is about to get busy. Here is what to do in the first 24 hours — and what to say to the client whilst you find out what happened.</p>
+      <p class="note">By Faevra &middot; Published 2026-10-27</p>
+    </section>
+
+    <section>
+      <p>Traffic drops are more common than clients expect, and less catastrophic than they often appear at first glance. Nearly 30% of marketers reported decreased search traffic in 2026. <span class="note">(Source: <a href="https://www.hubspot.com/marketing-statistics">HubSpot State of Marketing Report 2026</a>, accessed 2026-10-27)</span> That does not make it less urgent to investigate, but it does mean you have seen this before — or you should act as though you have. Calm, methodical and fast is the right register for the next few hours.</p>
+
+      <p>What follows is a triage sequence. Work through it in order. The goal in the first 24 hours is not to fix anything — it is to confirm the drop is real, classify its cause, gather the evidence, and give the client an honest first update. Rushing to a conclusion before you have the data is one of the most damaging things you can do for the relationship.</p>
+    </section>
+
+    <section>
+      <h2>Hour 1: Confirm the drop is real</h2>
+      <p>Google Analytics 4 data can be misleading. Tracking code changes, consent mode configurations and GA4's sampling behaviour on larger accounts all introduce noise. Before you treat the screenshot as definitive, open <strong>Google Search Console</strong> — not Analytics — and look at the Performance report.</p>
+
+      <p>Set the date range to the last three months and look at both clicks and impressions. Ask:</p>
+      <ul>
+        <li>Is there a real decline in clicks and impressions in Search Console, or is the drop showing only in Analytics? If Search Console clicks are stable, the problem may be tracking rather than traffic.</li>
+        <li>When did the drop start? Find the precise date or narrow window. This single piece of information will drive everything that follows.</li>
+        <li>Is the drop ongoing, or has traffic stabilised? A drop that stopped two weeks ago and is now flat is a different problem from one that is still declining.</li>
+      </ul>
+
+      <p>If Search Console confirms the drop, proceed to classification. If Search Console looks normal and the discrepancy is only in Analytics, your first call with the client should be about the tracking — not the traffic.</p>
+    </section>
+
+    <section>
+      <h2>Hours 1 to 2: Classify the cause</h2>
+      <p>Most significant organic traffic drops fall into one of three categories: a manual penalty from Google's spam team, an algorithmic change (a core update or system adjustment), or a technical issue introduced by a change to the site. Each requires a different response, so classifying the cause correctly is the single most important step in the investigation.</p>
+
+      <p>To classify:</p>
+      <ol>
+        <li><strong>Check the Manual Actions report</strong> (Search Console &rarr; Security &amp; Manual Actions &rarr; Manual Actions). If a manual action is present, it will appear here. This check takes under a minute.</li>
+        <li><strong>Cross-reference the drop date with the Google update timeline.</strong> Search Engine Journal maintains a list of confirmed algorithm updates with their rollout dates. <span class="note">(Source: <a href="https://www.searchenginejournal.com/google-algorithm-history/">Search Engine Journal, Google Algorithm History</a>, accessed 2026-10-27)</span> If the drop date falls within a named update rollout, algorithmic is the working hypothesis.</li>
+        <li><strong>Check the Coverage report</strong> (Search Console &rarr; Index &rarr; Pages). Look for a spike in errors, excluded pages or a drop in valid indexed pages around the drop date. A technical change to the site — a deployment, a configuration edit, a redirect update — often shows here before it is obvious anywhere else.</li>
+      </ol>
+
+      <p>For a more detailed walkthrough of what distinguishes these three causes, see our article on <a href="/articles/google-penalty-vs-algorithm-update-traffic-drop">Google penalty vs algorithm update vs technical issue</a>.</p>
+    </section>
+
+    <section>
+      <h2>Hours 2 to 3: Gather the evidence</h2>
+      <p>Once you have a working hypothesis for the cause, pull together the data you will need to support it. At minimum:</p>
+      <ul>
+        <li>Export the Performance data for the affected period and the comparison period. Note which pages lost the most clicks, which queries fell, and whether the drop is heavier on particular devices or in particular countries.</li>
+        <li>Note the precise start date of the drop.</li>
+        <li>If there is a technical cause, note which page types or URL patterns are affected in the Coverage report.</li>
+        <li>If the drop aligns with a core update, note the update name and rollout dates from Search Engine Journal.</li>
+      </ul>
+
+      <p>Keep this evidence in one place — a shared document, a note in your project management tool, or a simple spreadsheet. You are going to refer back to it throughout the remediation, and the client may ask to see it.</p>
+    </section>
+
+    <section>
+      <h2>What to tell the client in hour 1</h2>
+      <p>Before you have finished the investigation, you still need to respond. Silence from the agency whilst the client is watching their traffic fall in real time is damaging to the relationship — even if the silence is because you are doing the right thing and investigating carefully before speaking.</p>
+
+      <p>The first message to the client does not need to contain conclusions. It needs to contain four things:</p>
+      <ol>
+        <li><strong>Acknowledgement.</strong> You have seen the data and you are on it.</li>
+        <li><strong>Context.</strong> Traffic drops are not rare. Nearly 30% of marketers saw decreased search traffic in 2026. <span class="note">(Source: <a href="https://www.hubspot.com/marketing-statistics">HubSpot State of Marketing Report 2026</a>, accessed 2026-10-27)</span> Each drop has a specific cause — you are working to identify this one.</li>
+        <li><strong>A timeline.</strong> When will you give them your first update? By end of day? Within 24 hours? Name a specific time and stick to it.</li>
+        <li><strong>No speculation about the cause.</strong> Do not say "it was probably a Google update" before you have checked. Do not say "your site might have a penalty" before you have opened the Manual Actions report. Both statements are easy to say and hard to unsay if they turn out to be wrong.</li>
+      </ol>
+
+      <p>A message along these lines is appropriate: "We've seen the drop in your Search Console data and we're investigating now. Traffic drops have a number of possible causes — we're working through the Search Console reports to identify what happened and when. We'll have a first update for you by [time]. We won't speculate until we have the data in front of us."</p>
+
+      <p>That message takes two minutes to write and buys you the time to do the investigation properly.</p>
+    </section>
+
+    <section>
+      <h2>What not to do</h2>
+      <p>These are the mistakes that damage client relationships and extend the recovery timeline:</p>
+
+      <ul>
+        <li><strong>Do not say "it was a Google update" before you have confirmed it.</strong> Attributing a drop to a Google update before cross-referencing the drop date with the actual update timeline is a guess, not a diagnosis. If you are wrong, you have misled the client and wasted time on the wrong remediation.</li>
+        <li><strong>Do not promise a recovery timeline before you have classified the cause.</strong> Recovery from a manual penalty takes weeks if you act quickly and months if you do not. Recovery from a core update has no reliable timeline at all. Any figure you give before you know the cause is invented.</li>
+        <li><strong>Do not suggest the client's site is penalised unless you have opened the Manual Actions report.</strong> A manual penalty is a specific, verifiable thing. If you raise the possibility without checking, the client will search for "Google penalty" and spend the next two days reading articles that do not apply to their situation.</li>
+        <li><strong>Do not start fixing things before you know what is broken.</strong> Changing title tags, rewriting content and disavowing links all in the same week are actions that make it impossible to tell what — if anything — actually helped when traffic eventually recovers.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>After the first 24 hours</h2>
+      <p>Once you have confirmed the drop, classified the cause and gathered the evidence, you are in a position to give the client a proper briefing. That briefing should cover: what happened, when it started, what the most likely cause is and why, which pages and queries were most affected, and what the next steps are.</p>
+
+      <p>The more specific and evidence-based you can be, the more confidence the client has that the situation is under control — even if the fix is going to take time. Vague explanations paired with a lack of data are what erode trust. Specific explanations paired with clear evidence and a plan do not.</p>
+
+      <a class="button" href="/">Request a free report</a>
+
+      <p class="note">A Faevra report delivers the evidence in one document — the affected pages, the likely cause, and what to fix first — so your first client update is based on data, not a guess.</p>
+    </section>
+
+  </main>
+  <footer class="wrap">
+    <p class="note">&copy; 2026 Faevra Ltd &middot; <a href="/privacy.html">Privacy notice</a> &middot; <a href="/terms.html">Terms of service</a></p>
+  </footer>
+</body>
+</html>

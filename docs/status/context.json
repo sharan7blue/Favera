@@ -28,7 +28,8 @@
     "Privacy notice: England and Wales confirmed; controller/processor roles written; retention policy set; v4 draft in apps/web/privacy.html",
     "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
     "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)",
-    "Session 4 (27 Oct 2026): 28 verified prospects; articles section added (tasks 14-16); URL path faevra.io/articles confirmed; format both data studies and keyword guides; no CMS — plain HTML files; 3 article drafts due Fri 31 Oct"
+    "Session 4 (27 Oct 2026): 28 verified prospects; articles section added (tasks 14-16); URL path faevra.io/articles confirmed; format both data studies and keyword guides; no CMS — plain HTML files; 3 article drafts due Fri 31 Oct",
+    "Session 4 (27 Oct 2026, end): 3 article drafts written by Cass, QA'd by Quinn, citations fixed by Mira; committed to branch week1/privacy-page"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
@@ -40,7 +41,8 @@
     "Create OG image (1200x630 px) and save as apps/web/og.png before launch",
     "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/",
-    "Authorise access to a keyword research tool (Ahrefs, Semrush or Google Keyword Planner) so article keyword volumes can be confirmed before copy is finalised"
+    "Authorise access to a keyword research tool (Ahrefs, Semrush or Google Keyword Planner) so article keyword volumes can be confirmed before copy is finalised",
+    "Review 3 article drafts in apps/web/articles/ — all carry draft-banner and noindex; read before approving for publish"
   ],
   "company": {
     "name": "FAEVRA LTD",
@@ -91,11 +93,15 @@
     ]
   },
   "articles": {
-    "status": "in progress",
+    "status": "3 drafts written and QA'd (27 Oct 2026) — ready for founder review; task 15 (articles index) pending",
     "url_path": "faevra.io/articles",
     "format": "both — data studies and keyword guides",
     "cms": "none — plain HTML files, same CSS as main site; one .html file per article in apps/web/articles/",
-    "friday_target": "3 article drafts by 31 Oct 2026 (keyword guides 6, 8, 7 from Sia’s brief)",
+    "drafts": [
+      "apps/web/articles/how-to-diagnose-google-search-console-traffic-drop.html",
+      "apps/web/articles/google-penalty-vs-algorithm-update-traffic-drop.html",
+      "apps/web/articles/client-organic-traffic-drop-what-to-do.html"
+    ],
     "briefs_file": "docs/status/2026-10-27-seo-specialist.md",
     "board_tasks": [14, 15, 16],
     "data_studies_gate": "data studies 1–5 cannot be written until Gate 1 client data available (2026-11-25 at earliest)"
