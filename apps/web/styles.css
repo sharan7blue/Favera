@@ -110,6 +110,16 @@ mark { background: #ffe58a; color: #1c1b19; padding: 0 0.15em; border-radius: 3p
 }
 .skip-link:focus { left: 16px; }
 .hero .note { margin-top: 0.5rem; }
+/* Article listing */
+.article-list { list-style: none; padding-left: 0; margin: 0; }
+.article-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+.article-item:last-child { border-bottom: 0; }
+.article-date { margin: 0 0 0.35rem; }
+.article-title { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 1.3rem; font-weight: 400; line-height: 1.25; margin: 0 0 0.5rem; }
+.article-title a { color: var(--text); text-decoration: none; }
+.article-title a:hover { color: var(--accent); }
+.article-title a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+.article-summary { margin: 0; }
 /* Data table */
 .table-wrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
