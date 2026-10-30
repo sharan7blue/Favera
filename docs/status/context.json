@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28",
+  "updated": "2026-10-30",
   "phase": "week 1: set-up and prospect list (22 to 28 Oct)",
   "gates": {
     "gate1": {
@@ -29,7 +29,8 @@
     "Terms page: stub built (apps/web/terms.html); pricing and liability cap placeholders remain until Gate 2",
     "Session 3 (24 Oct 2026): all Week 1 agent tasks complete; UX, copy, dev, SEO, QA, research-analyst and sales-outreach rounds done; GitHub push still blocked (task 1)",
     "Session 4 (27 Oct 2026): 28 verified prospects; articles section added (tasks 14-16); URL path faevra.io/articles confirmed; format both data studies and keyword guides; no CMS — plain HTML files; 3 article drafts due Fri 31 Oct",
-    "Session 5 (28 Oct 2026): task 15 (articles/index.html) built; article-list styles added to styles.css; all tasks 14–16 now done; htmlhint/linkinator must run locally before merge"
+    "Session 5 (28 Oct 2026): task 15 (articles/index.html) built; article-list styles added to styles.css; all tasks 14–16 now done; htmlhint/linkinator must run locally before merge",
+    "Session 6 (30 Oct 2026): task 17 assigned to Dev — technical SEO gaps across articles section: Article JSON-LD + BreadcrumbList on all 3 articles, BreadcrumbList on articles/index.html, og:image + Twitter card meta on all 4 article pages, og:image:alt added to homepage, sitemap.xml updated with all article URLs + lastmod dates; OG image design spec written — founder action required (see task 17 brief)"
   ],
   "open_for_founder": [
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
@@ -38,7 +39,7 @@
     "Publish the Tally form when ready: https://tally.so/forms/KpY948/edit",
     "Install Claude GitHub App at https://github.com/apps/claude for repo sharan7blue/Favera (or rename repo to faevra first) — this is the only blocker for a preview link",
     "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
-    "Create OG image (1200x630 px) and save as apps/web/og.png before launch",
+    "Create OG image and commit as apps/web/og.png — spec in docs/status/2026-10-30-project-manager.md: 1200x630px, PNG, under 1MB, text and logo within central 1140x580px safe zone, dark background, main text 60px+ bold, export at 72dpi sRGB",
     "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/",
     "Authorise access to a keyword research tool (Ahrefs, Semrush or Google Keyword Planner) so article keyword volumes can be confirmed before copy is finalised",
@@ -94,7 +95,7 @@
     ]
   },
   "articles": {
-    "status": "3 drafts written and QA’d (27 Oct 2026) — ready for founder review; articles/index.html listing page built (28 Oct 2026)",
+    "status": "3 drafts written and QA'd (27 Oct 2026) — ready for founder review; articles/index.html listing page built (28 Oct 2026); technical SEO task 17 pending (schema, OG, Twitter cards, sitemap)",
     "url_path": "faevra.io/articles",
     "format": "both — data studies and keyword guides",
     "cms": "none — plain HTML files, same CSS as main site; one .html file per article in apps/web/articles/",
@@ -104,7 +105,7 @@
       "apps/web/articles/client-organic-traffic-drop-what-to-do.html"
     ],
     "briefs_file": "docs/status/2026-10-27-seo-specialist.md",
-    "board_tasks": [14, 15, 16],
+    "board_tasks": [14, 15, 16, 17],
     "index_page": "apps/web/articles/index.html",
     "data_studies_gate": "data studies 1–5 cannot be written until Gate 1 client data available (2026-11-25 at earliest)"
   },
