@@ -3,8 +3,15 @@ on:
   push:
     branches-ignore: [main]
   pull_request:
+
+# Each job runs in parallel where possible.
+# smoke-tests waits for accessibility, seo-metadata and image-standards to pass first.
+
 jobs:
-  checks:
+
+  # ── Gate 1: Code quality ────────────────────────────────────────────────────────────────────────────
+  code-quality:
+    name: Code quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,11 +24,70 @@ jobs:
         run: npx --yes linkinator@6.1.1 apps/web --recurse --skip "^https?://"
       - name: Validate agent files
         run: |
-          pip install pyyaml
+          pip install pyyaml --break-system-packages
           python3 scripts/validate_agents.py
-      - name: Warn if the form link is still a placeholder
-        continue-on-error: true
-        run: "! grep -rn REPLACE_ME apps/web"
-      - name: List unresolved placeholders (does not fail)
+      - name: Warn on unresolved placeholders
         continue-on-error: true
         run: python3 scripts/check_placeholders.py
+
+  # ── Gate 2a: Accessibility (WCAG 2.1 AA) ────────────────────────────────────────────
+  accessibility:
+    name: Accessibility (WCAG 2.1 AA)
+    needs: code-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Start local server
+        run: python3 -m http.server 4321 --directory apps/web &
+      - name: Wait for server
+        run: sleep 3
+      - name: Run pa11y on all pages
+        run: npx --yes pa11y-ci@3.1.0 --config .pa11yci
+
+  # ── Gate 2b: SEO and metadata ────────────────────────────────────────────────
+  seo-metadata:
+    name: SEO and metadata
+    needs: code-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SEO and metadata validation
+        run: python3 scripts/check_seo.py
+
+  # ── Gate 2c: Image standards ─────────────────────────────────────────────────────
+  image-standards:
+    name: Image standards
+    needs: code-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Image standards check
+        run: python3 scripts/check_images.py
+
+  # ── Gate 3: Playwright smoke tests ──────────────────────────────────────────────
+  # Runs only after accessibility, SEO and image gates all pass.
+  smoke-tests:
+    name: Playwright smoke tests
+    needs: [accessibility, seo-metadata, image-standards]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install @playwright/test and Chromium
+        run: |
+          npm install --save-dev @playwright/test@1.48.0
+          npx playwright install chromium --with-deps
+      - name: Run smoke tests
+        run: npx playwright test --config playwright.config.js
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7
