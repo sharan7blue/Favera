@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:4321/",
+    "http://localhost:4321/privacy.html",
+    "http://localhost:4321/terms.html"
+  ]
+}

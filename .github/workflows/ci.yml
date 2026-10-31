@@ -45,11 +45,7 @@ jobs:
       - name: Wait for server
         run: sleep 3
       - name: Run pa11y on all pages
-        run: |
-          npx --yes pa11y-ci@3.1.0 \
-            http://localhost:4321/ \
-            http://localhost:4321/privacy.html \
-            http://localhost:4321/terms.html
+        run: npx --yes pa11y-ci@3.1.0 --config .pa11yci
 
   # ── Gate 2b: SEO and metadata ────────────────────────────────────────────────
   seo-metadata:
