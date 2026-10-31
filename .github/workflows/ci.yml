@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  # ── Gate 1: Code quality ────────────────────────────────────────────────────
+  # ── Gate 1: Code quality ────────────────────────────────────────────────────────────────────────────
   code-quality:
     name: Code quality
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         run: python3 scripts/check_placeholders.py
 
-  # ── Gate 2a: Accessibility (WCAG 2.1 AA) ────────────────────────────────────
+  # ── Gate 2a: Accessibility (WCAG 2.1 AA) ────────────────────────────────────────────
   accessibility:
     name: Accessibility (WCAG 2.1 AA)
     needs: code-quality
@@ -57,7 +57,7 @@ jobs:
       - name: SEO and metadata validation
         run: python3 scripts/check_seo.py
 
-  # ── Gate 2c: Image standards ─────────────────────────────────────────────────
+  # ── Gate 2c: Image standards ─────────────────────────────────────────────────────
   image-standards:
     name: Image standards
     needs: code-quality
@@ -67,7 +67,7 @@ jobs:
       - name: Image standards check
         run: python3 scripts/check_images.py
 
-  # ── Gate 3: Playwright smoke tests ──────────────────────────────────────────
+  # ── Gate 3: Playwright smoke tests ──────────────────────────────────────────────
   # Runs only after accessibility, SEO and image gates all pass.
   smoke-tests:
     name: Playwright smoke tests
@@ -78,10 +78,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install Playwright and Chromium
-        run: npx --yes playwright@1.48.0 install chromium --with-deps
+      - name: Install @playwright/test and Chromium
+        run: |
+          npm install --save-dev @playwright/test@1.48.0
+          npx playwright install chromium --with-deps
       - name: Run smoke tests
-        run: npx --yes playwright@1.48.0 test --config playwright.config.js
+        run: npx playwright test --config playwright.config.js
       - name: Upload test results on failure
         if: failure()
         uses: actions/upload-artifact@v4
