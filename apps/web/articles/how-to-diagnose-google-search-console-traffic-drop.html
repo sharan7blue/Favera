@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Diagnose a Google Search Console Traffic Drop (Step by Step) — Faevra</title>
+  <meta name="description" content="A step-by-step checklist for diagnosing a Google Search Console traffic drop: which reports to open, in which order, and what each one tells you.">
+  <link rel="canonical" href="https://faevra.io/articles/how-to-diagnose-google-search-console-traffic-drop">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Faevra">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://faevra.io/articles/how-to-diagnose-google-search-console-traffic-drop">
+  <meta property="og:title" content="How to Diagnose a Google Search Console Traffic Drop (Step by Step) — Faevra">
+  <meta property="og:description" content="A step-by-step checklist for diagnosing a Google Search Console traffic drop: which reports to open, in which order, and what each one tells you.">
+  <meta property="og:image" content="https://faevra.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Faevra: plain-English Search Console traffic-drop reports">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://faevra.io/og.png">
+  <meta name="twitter:title" content="How to Diagnose a Google Search Console Traffic Drop (Step by Step)">
+  <meta name="twitter:description" content="A step-by-step checklist for diagnosing a Google Search Console traffic drop: which reports to open, in which order, and what each one tells you.">
+  <meta name="robots" content="noindex">
+  <!-- Schema.org: Article -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Diagnose a Google Search Console Traffic Drop (Step by Step)",
+  "description": "A step-by-step checklist for diagnosing a Google Search Console traffic drop: which reports to open, in which order, and what each one tells you.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": { "@type": "Organization", "name": "Faevra", "url": "https://faevra.io/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Faevra",
+    "url": "https://faevra.io/",
+    "logo": { "@type": "ImageObject", "url": "https://faevra.io/favicon.svg", "width": 512, "height": 512 }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://faevra.io/articles/how-to-diagnose-google-search-console-traffic-drop" },
+  "image": { "@type": "ImageObject", "url": "https://faevra.io/og.png", "width": 1200, "height": 630 }
+}
+  </script>
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://faevra.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://faevra.io/articles" },
+    { "@type": "ListItem", "position": 3, "name": "Diagnose a Traffic Drop", "item": "https://faevra.io/articles/how-to-diagnose-google-search-console-traffic-drop" }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="wrap">
+    <p class="brand"><a href="/">Faevra</a></p>
+  </header>
+  <main class="wrap" id="main-content">
+
+    <div class="draft-banner"><strong>Draft — not yet published.</strong> This article is in review.</div>
+
+    <section class="hero">
+      <h1>How to Diagnose a Google Search Console Traffic Drop (Step by Step)</h1>
+      <p class="lead">A client has just flagged a traffic drop. Before you do anything else, open Search Console — not Analytics. Here is the order of reports to check, and what you are looking for in each one.</p>
+      <p class="note">By Faevra &middot; Published 2026-10-27</p>
+    </section>
+
+    <section>
+      <p>The panic is understandable. A screenshot lands in your inbox showing clicks down 40% over the past month, and the client wants to know what happened. The good news is that most drops have one of a small number of causes: a Google algorithm update, a manual penalty, a technical problem, or a shift in how clicks are distributed between organic results and other SERP features. The bad news is that telling them apart takes time and a methodical approach.</p>
+
+      <p>This guide takes you through Search Console report by report. Work through the steps in order. Each one either confirms or rules out a cause, so by the end you should have a clear picture of what happened — even if you have not yet worked out how to fix it.</p>
+    </section>
+
+    <section>
+      <h2>Step 1: Check the date</h2>
+      <p>Open the <strong>Performance report</strong> in Search Console. Set the date range to the last 16 months — the maximum the report allows. Switch to a line chart if it is not already selected, and look at the clicks line.</p>
+
+      <p>Find the precise date, or narrow window of dates, when clicks began to fall. This is the most important piece of information in the whole investigation. Write it down. Everything else you do will be cross-referenced against this date.</p>
+
+      <p>A few things to check at this stage:</p>
+      <ul>
+        <li>Is the drop a sudden single-day cliff, or a gradual decline over several weeks? A sudden drop points to a penalty, a technical change or a specific update rollout. A gradual decline is more likely to be a structural shift — content quality, competitor gains or AI Overview cannibalisation.</li>
+        <li>Does the drop follow a seasonal pattern you have seen before in this account? Compare the same period in the previous year before concluding anything is wrong.</li>
+        <li>Is the drop still ongoing, or has traffic stabilised at a new lower level? A stable new floor after a sharp drop often indicates the account has been re-ranked following a core update.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Step 2: Narrow to what fell</h2>
+      <p>Still in the Performance report, add the following filters one at a time and note what each reveals:</p>
+
+      <ol>
+        <li><strong>Pages:</strong> Sort by click loss (compare the drop period to the equivalent period before). Which pages account for most of the lost clicks? Is it one page, a category of pages, or spread evenly across the site?</li>
+        <li><strong>Queries:</strong> Which search terms lost traffic? Were they brand queries, informational queries, or commercial queries? A loss concentrated in brand queries can indicate a reputation problem or a competitor bidding on your brand in paid search — not an SEO issue at all.</li>
+        <li><strong>Devices:</strong> Did the drop occur on all devices equally, or is it heavier on mobile? A device-specific drop often has a technical cause — a mobile usability issue, a page speed regression after a deployment, or a layout shift affecting Core Web Vitals.</li>
+      </ol>
+
+      <p>If one page drove most of the click loss, that is a good sign: it is easier to diagnose and fix a single-page problem than a sitewide one. If the loss is spread across dozens of pages with no obvious pattern, an algorithm update is the more likely explanation.</p>
+    </section>
+
+    <section>
+      <h2>Step 3: Check for a Google update</h2>
+      <p>Take the date you identified in Step 1 and cross-reference it against the Google core update timeline. Search Engine Journal maintains a running history of confirmed Google algorithm updates. <span class="note">(Source: <a href="https://www.searchenginejournal.com/google-algorithm-history/">Search Engine Journal, Google Algorithm History</a>, accessed 2026-10-27)</span></p>
+
+      <p>If your drop date falls within or immediately after the rollout window of a confirmed core update, that is a strong signal. Core updates roll out over days to weeks — the March 2024 core update took approximately 45 days to complete <span class="note">(Source: <a href="https://www.searchenginejournal.com/google-algorithm-history/">Search Engine Journal, Google Algorithm History</a>, accessed 2026-10-27)</span> — so the beginning of a drop may precede the end of the rollout by several weeks.</p>
+
+      <p>If the drop date does not align with any known update, that does not rule out an algorithmic cause — Google makes thousands of changes to its ranking systems each year that are never announced. But a mismatch should prompt you to look more carefully at technical and structural explanations before settling on "it was an update".</p>
+    </section>
+
+    <section>
+      <h2>Step 4: Compare impressions and clicks</h2>
+      <p>Back in the Performance report, switch to showing both <strong>clicks</strong> and <strong>impressions</strong> together. The relationship between them changes the diagnosis significantly:</p>
+
+      <ul>
+        <li><strong>Impressions fell and clicks fell:</strong> This is a ranking problem. Your pages are appearing in fewer searches, which means you are getting fewer opportunities to be clicked. The cause is likely algorithmic, technical (pages not being indexed) or competitive (another site has overtaken your rankings).</li>
+        <li><strong>Impressions held but clicks fell:</strong> Your pages are still appearing in the same searches, but fewer people are clicking through. The two most common explanations are a drop in average position (your pages moved from position 2 to position 5, for example) and AI Overview cannibalisation — Google's AI-generated summaries at the top of the page are answering the query directly, so fewer people scroll to the organic results. Check the average position column alongside CTR to distinguish between them.</li>
+      </ul>
+
+      <p>This step alone narrows the field of possible causes considerably, which is why it is worth doing before you spend time in the other reports.</p>
+    </section>
+
+    <section>
+      <h2>Step 5: Check the Coverage report</h2>
+      <p>Open <strong>Index</strong> in the left-hand menu, then <strong>Pages</strong>. Look at the history chart. Are there any sudden spikes in:</p>
+
+      <ul>
+        <li>Pages with errors (these cannot be indexed)</li>
+        <li>Pages marked as excluded (crawled but not indexed)</li>
+        <li>A drop in valid indexed pages</li>
+      </ul>
+
+      <p>If any of these spikes correspond to the date of your traffic drop, the problem is at least partly technical. Common causes include a noindex tag accidentally applied to a section of the site, a robots.txt change blocking Googlebot, a server returning error responses for certain URL patterns, or a canonical tag pointing pages to a different URL.</p>
+
+      <p>Click into the error types to see which URLs are affected. If they are all product pages, or all blog posts, or all URLs matching a particular pattern, that cluster is your starting point for the technical fix.</p>
+    </section>
+
+    <section>
+      <h2>Step 6: Segment by device and country</h2>
+      <p>Return to the Performance report and apply the <strong>Device</strong> dimension. If the drop is heavily concentrated on mobile, look for a mobile-specific technical issue: a recent responsive design change, mobile page speed regression or a mobile usability error flagged in the <strong>Experience</strong> section of Search Console.</p>
+
+      <p>Then apply the <strong>Country</strong> dimension. If the drop is confined to one country — particularly if the site has multilingual or multi-region content — check whether a hreflang configuration issue or a country-specific algorithm rollout explains it. Google rolls out some features country by country, and the timing can differ from the global announcement.</p>
+
+      <p>A drop that is genuinely sitewide across all devices and all countries is the hardest to reverse quickly. It typically points to a core algorithm update that has re-evaluated the site's content quality or authority. A drop that is isolated to one device, one country or one cluster of pages is easier to act on because it has a more specific cause.</p>
+    </section>
+
+    <section>
+      <h2>What comes next</h2>
+      <p>By the end of these six steps you should be able to answer three questions: when did the drop start, what fell, and what category of cause fits the evidence? That classification — algorithmic, technical, or a combination — determines what you do next.</p>
+
+      <p>Working through all of this in Search Console typically takes three to four hours on a site you know well, and longer on a new account. If you need to present findings to a client quickly, the bottleneck is rarely the analysis — it is turning the data into a clear explanation of what happened and what to fix first.</p>
+
+      <a class="button" href="/">Request a free report</a>
+
+      <p class="note">A Faevra report runs the same segmentation described above and delivers a plain-English verdict — affected pages, likely cause, and recommended next steps — within 48 hours of receiving your Search Console export.</p>
+    </section>
+
+  </main>
+  <footer class="wrap">
+    <p class="note">&copy; 2026 Faevra Ltd &middot; <a href="/privacy.html">Privacy notice</a> &middot; <a href="/terms.html">Terms of service</a></p>
+  </footer>
+</body>
+</html>
