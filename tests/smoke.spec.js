@@ -56,11 +56,13 @@ test('terms page: loads and has h1', async ({ page }) => {
 
 test('all internal links resolve without 4xx', async ({ page }) => {
   await page.goto('/');
-  const links = await page.locator('a[href]').all();
+  // Collect all href values as plain strings before any navigation.
+  // Using live locator handles inside a navigation loop causes stale-element
+  // timeouts because page.goto() replaces the DOM the locators reference.
+  const hrefs = await page.$$eval('a[href]', as => as.map(a => a.getAttribute('href')));
   const checked = new Set();
 
-  for (const link of links) {
-    const href = await link.getAttribute('href');
+  for (const href of hrefs) {
     if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) continue;
     if (checked.has(href)) continue;
     checked.add(href);
