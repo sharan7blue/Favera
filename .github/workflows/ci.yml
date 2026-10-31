@@ -47,7 +47,6 @@ jobs:
       - name: Run pa11y on all pages
         run: |
           npx --yes pa11y-ci@3.1.0 \
-            --standard WCAG2AA \
             http://localhost:4321/ \
             http://localhost:4321/privacy.html \
             http://localhost:4321/terms.html
