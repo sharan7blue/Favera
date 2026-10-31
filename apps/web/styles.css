@@ -7,6 +7,7 @@
   --quiet: #5b5852;
   --accent: #d95c1a;
   --accent-text: #ffffff;
+  --link: #a84416;
   --rule: #e3e0da;
   --focus: #d95c1a;
   /* Semantic tokens — wire up when app UI launches at Gate 1 */
@@ -20,6 +21,7 @@
     --quiet: #a9a59c;
     --accent: #f5834a;
     --accent-text: #0e0d0c;
+    --link: #f5834a;
     --rule: #2c2a26;
     --focus: #f5834a;
   }
@@ -63,7 +65,7 @@ h2 { font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 0.5rem; }
 .button:active { transform: translateY(1px); }
 .button:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
 /* General links */
-a { color: var(--accent); }
+a { color: var(--link); }
 a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
 /* Layout sections */
 section { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
