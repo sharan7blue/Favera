@@ -4,12 +4,12 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 
 | # | Task | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| 1 | Create repo, push, connect Cloudflare Pages | developer | blocked: GitHub App not installed for sharan7blue/Favera; founder must install the Claude GitHub App at https://github.com/apps/claude or rename repo | preview and production links load |
+| 1 | Create repo, push, connect Cloudflare Pages | developer | GitHub App installed (31 Oct 2026); blocked: Cloudflare Pages not yet connected; DNS registrar unknown | preview and production links load |
 | 2 | Move faevra.io DNS to Cloudflare | founder | blocked: registrar unknown | https://faevra.io loads with a valid certificate |
-| 3 | Mailbox with SPF, DKIM, DMARC | founder | not started | test email passes all three |
+| 3 | Mailbox with SPF, DKIM, DMARC | founder | done (31 Oct 2026): mailbox live; SPF, DKIM, DMARC confirmed by founder | test email passes all three |
 | 4 | Page copy | copywriter | done (session 3): hero headline, lead, benefits, "who it is for" all sharpened; fourth bullet "You review it first" added | founder happy to send the link |
 | 5 | Tally form | developer | draft form KpY948 at https://tally.so/forms/KpY948/edit; selfEmail set; index.html CTA wired; form not yet published | test submission appears as a row and an email |
-| 6 | CI workflow | qa-tester | drafted in .github/workflows/ci.yml; untested (push blocked by GitHub App) | a broken link fails the check |
+| 6 | CI workflow | qa-tester | drafted in .github/workflows/ci.yml; GitHub App now installed — developer can test on branch | a broken link fails the check |
 | 7 | 60-agency prospect sheet | research-analyst | 28 verified rows (rounds 1–4, 27 Oct 2026); docs/status/2026-10-27-research-analyst.md | 60 rows with name, site, size, source, contact route |
 | 8 | Privacy page | copywriter | v4 committed; 6 [CONFIRM] groups remain — all require founder sign-off | live before any access request in week 4 |
 | 9 | Terms page | copywriter | stub committed; 2 [CONFIRM] groups remain — Gate 1 items | live alongside privacy page before any access request |
