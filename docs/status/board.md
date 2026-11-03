@@ -4,8 +4,8 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 
 | # | Task | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| 1 | Create repo, push, connect Cloudflare Pages | developer | GitHub App installed (31 Oct 2026); registrar confirmed as GoDaddy (3 Nov 2026); developer to connect Cloudflare Pages once founder points DNS | preview and production links load |
-| 2 | Move faevra.io DNS to Cloudflare | founder | in progress: registrar confirmed as GoDaddy (3 Nov 2026); founder to point nameservers to Cloudflare Pages values in GoDaddy dashboard | https://faevra.io loads with a valid certificate |
+| 1 | Create repo, push, connect Cloudflare Pages | developer | unblocked (3 Nov 2026): GitHub App installed, DNS pointed to Cloudflare; developer to connect Cloudflare Pages and push site | preview and production links load |
+| 2 | Move faevra.io DNS to Cloudflare | founder | done (3 Nov 2026): nameservers pointed to Cloudflare Pages in GoDaddy | https://faevra.io loads with a valid certificate |
 | 3 | Mailbox with SPF, DKIM, DMARC | founder | done (31 Oct 2026): mailbox live; SPF, DKIM, DMARC confirmed by founder | test email passes all three |
 | 4 | Page copy | copywriter | done (session 3): hero headline, lead, benefits, "who it is for" all sharpened; fourth bullet "You review it first" added | founder happy to send the link |
 | 5 | Tally form | developer | draft form KpY948 at https://tally.so/forms/KpY948/edit; selfEmail set; index.html CTA wired; form not yet published | test submission appears as a row and an email |
