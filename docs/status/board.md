@@ -4,8 +4,8 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 
 | # | Task | Owner | Status | Done when |
 | --- | --- | --- | --- | --- |
-| 1 | Create repo, push, connect Cloudflare Pages | developer | GitHub App installed (31 Oct 2026); blocked: Cloudflare Pages not yet connected; DNS registrar unknown | preview and production links load |
-| 2 | Move faevra.io DNS to Cloudflare | founder | blocked: registrar unknown | https://faevra.io loads with a valid certificate |
+| 1 | Create repo, push, connect Cloudflare Pages | developer | GitHub App installed (31 Oct 2026); registrar confirmed as GoDaddy (3 Nov 2026); developer to connect Cloudflare Pages once founder points DNS | preview and production links load |
+| 2 | Move faevra.io DNS to Cloudflare | founder | in progress: registrar confirmed as GoDaddy (3 Nov 2026); founder to point nameservers to Cloudflare Pages values in GoDaddy dashboard | https://faevra.io loads with a valid certificate |
 | 3 | Mailbox with SPF, DKIM, DMARC | founder | done (31 Oct 2026): mailbox live; SPF, DKIM, DMARC confirmed by founder | test email passes all three |
 | 4 | Page copy | copywriter | done (session 3): hero headline, lead, benefits, "who it is for" all sharpened; fourth bullet "You review it first" added | founder happy to send the link |
 | 5 | Tally form | developer | draft form KpY948 at https://tally.so/forms/KpY948/edit; selfEmail set; index.html CTA wired; form not yet published | test submission appears as a row and an email |
@@ -15,7 +15,7 @@ Only the project manager reassigns tasks. One line per task: owner, status, link
 | 9 | Terms page | copywriter | stub committed; 2 [CONFIRM] groups remain — Gate 1 items | live alongside privacy page before any access request |
 | 10 | SEO audit | seo-specialist | done (session 3): title tags, OG tags, meta descriptions updated; robots.txt and sitemap.xml added; favicon.svg added; structured data improved; full audit in docs/status/2026-10-24-seo-specialist.md | noindex removed at launch |
 | 11 | UX / accessibility audit | ux-designer | done (session 3): focus tokens, header/section/footer spacing, button colour guard, list spacing, brand link on index, section aria-label; full audit in docs/status/2026-10-24-ux-designer-round2.md | passes WCAG 2.2 AA on all three pages |
-| 12 | Outreach drafts | sales-outreach | done (session 3): 5 drafts in docs/status/2026-10-24-sales-outreach.md — not sent; founder must approve and send from Faevra mailbox | founder approves and sends when mailbox is live |
+| 12 | Outreach drafts | sales-outreach | done (session 3): 5 drafts in docs/status/2026-10-24-sales-outreach.md — not sent; mailbox is live (31 Oct 2026); founder to approve and send once site is live | founder approves and sends |
 | 13 | QA pre-launch audit | qa-tester | done (session 3): structural checks pass all 3 pages; all internal links resolve; 6 [CONFIRM] placeholders remain (expected); og.png missing; full report in docs/status/2026-10-24-qa-tester.md | placeholder check exits 0 at launch |
 | 14 | Article topic research | seo-specialist | done (27 Oct 2026): 10 briefs in docs/status/2026-10-27-seo-specialist.md; 5 keyword guides can draft now; 5 data studies wait for Gate 1 | 10 topic briefs with keyword, intent, and source |
 | 15 | Articles section on site | developer | done (28 Oct 2026): apps/web/articles/index.html built; article-list styles added to styles.css; all 3 drafts linked; structural checks pass; note in docs/status/2026-10-28-developer.md | apps/web/articles/index.html listing page and shared article template live on branch |
