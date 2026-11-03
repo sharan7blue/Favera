@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-31",
-  "phase": "week 1: set-up and prospect list (22 to 28 Oct)",
+  "updated": "2026-11-03",
+  "phase": "week 2: connect Cloudflare Pages and point DNS",
   "gates": {
     "gate1": {
       "date": "2026-11-25",
@@ -32,16 +32,17 @@
     "Session 5 (28 Oct 2026): task 15 (articles/index.html) built; article-list styles added to styles.css; all tasks 14–16 now done; htmlhint/linkinator must run locally before merge",
     "Session 6 (30 Oct 2026): task 17 assigned to Dev — technical SEO gaps across articles section: Article JSON-LD + BreadcrumbList on all 3 articles, BreadcrumbList on articles/index.html, og:image + Twitter card meta on all 4 article pages, og:image:alt added to homepage, sitemap.xml updated with all article URLs + lastmod dates; OG image design spec written — founder action required (see task 17 brief)",
     "GitHub App installed for sharan7blue/Favera (31 Oct 2026); developer can now push branches and CI can run",
-    "Mailbox live with SPF, DKIM, DMARC (31 Oct 2026); confirmed by founder; outreach can proceed once DNS and Cloudflare Pages are ready"
+    "Mailbox live with SPF, DKIM, DMARC (31 Oct 2026); confirmed by founder; outreach can proceed once DNS and Cloudflare Pages are ready",
+    "3 Nov 2026: registrar confirmed as GoDaddy; founder to point faevra.io nameservers to Cloudflare Pages values in GoDaddy dashboard (task 2)"
   ],
   "open_for_founder": [
+    "Point faevra.io nameservers to Cloudflare Pages values in GoDaddy dashboard — registrar confirmed 3 Nov 2026 (task 2; unblocks task 1)",
     "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
     "Confirm Cloudflare Web Analytics is cookie-free: open https://developers.cloudflare.com/web-analytics/ and share the answer",
     "Check Tally form cookies in a private browser window before launch",
     "Publish the Tally form when ready: https://tally.so/forms/KpY948/edit",
-    "Where faevra.io is registered (needed to point DNS to Cloudflare Pages)",
     "Create OG image and commit as apps/web/og.png — spec in docs/status/2026-10-30-project-manager.md: 1200x630px, PNG, under 1MB, text and logo within central 1140x580px safe zone, dark background, main text 60px+ bold, export at 72dpi sRGB",
-    "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) once mailbox is live",
+    "Approve and send outreach emails (5 drafts in docs/status/2026-10-24-sales-outreach.md) — mailbox is live; hold until site is live",
     "ICO data protection fee self-assessment: https://ico.org.uk/for-organisations/ukgdpr/accountability-and-governance/data-protection-fee/",
     "Authorise access to a keyword research tool (Ahrefs, Semrush or Google Keyword Planner) so article keyword volumes can be confirmed before copy is finalised",
     "Review 3 article drafts in apps/web/articles/ — all carry draft-banner and noindex; read before approving for publish",
