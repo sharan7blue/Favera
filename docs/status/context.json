@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "phase": "week 2: connect Cloudflare Pages",
   "gates": {
     "gate1": {
@@ -33,10 +33,11 @@
     "Session 6 (30 Oct 2026): task 17 assigned to Dev — technical SEO gaps across articles section: Article JSON-LD + BreadcrumbList on all 3 articles, BreadcrumbList on articles/index.html, og:image + Twitter card meta on all 4 article pages, og:image:alt added to homepage, sitemap.xml updated with all article URLs + lastmod dates; OG image design spec written — founder action required (see task 17 brief)",
     "GitHub App installed for sharan7blue/Favera (31 Oct 2026); developer can now push branches and CI can run",
     "Mailbox live with SPF, DKIM, DMARC (31 Oct 2026); confirmed by founder; outreach can proceed once site is live",
-    "3 Nov 2026: registrar confirmed as GoDaddy; nameservers pointed to Cloudflare Pages (task 2 done); task 1 fully unblocked"
+    "3 Nov 2026: registrar confirmed as GoDaddy; nameservers pointed to Cloudflare Pages (task 2 done); task 1 fully unblocked",
+    "4 Nov 2026: prospect target reached — 60 verified rows as of 3 Nov 2026 (task 7 done); privacy@faevra.io confirmed as contact email; [CONTACT EMAIL] and [LAST UPDATED DATE] resolved in privacy.html and terms.html on PR #5"
   ],
   "open_for_founder": [
-    "Contact email — needed to resolve [CONTACT EMAIL] in privacy.html and terms.html before launch",
+    "Connect Cloudflare Pages to GitHub repo — BLOCKS SITE GOING LIVE: apps.cloudflare.com → Pages → Create a project → Connect to Git → sharan7blue/Favera → build command: (blank) → output: apps/web",
     "Confirm Cloudflare Web Analytics is cookie-free: open https://developers.cloudflare.com/web-analytics/ and share the answer",
     "Check Tally form cookies in a private browser window before launch",
     "Publish the Tally form when ready: https://tally.so/forms/KpY948/edit",
@@ -70,8 +71,6 @@
     "html_file": "apps/web/privacy.html",
     "version": 4,
     "unresolved_confirms": [
-      "[CONTACT EMAIL]",
-      "[LAST UPDATED DATE]",
       "[CONFIRM: cookies check]",
       "[CONFIRM: Cloudflare Web Analytics cookie-free]",
       "[CONFIRM: Cloudflare logging]",
@@ -96,7 +95,7 @@
     ]
   },
   "articles": {
-    "status": "3 drafts written and QA'd (27 Oct 2026) — ready for founder review; articles/index.html listing page built (28 Oct 2026); technical SEO task 17 pending (schema, OG, Twitter cards, sitemap)",
+    "status": "3 drafts written and QA'd (27 Oct 2026) — ready for founder review; articles/index.html listing page built (28 Oct 2026); technical SEO task 17 done and merged (31 Oct 2026)",
     "url_path": "faevra.io/articles",
     "format": "both — data studies and keyword guides",
     "cms": "none — plain HTML files, same CSS as main site; one .html file per article in apps/web/articles/",
@@ -112,13 +111,14 @@
   },
   "prospects": {
     "target": 60,
-    "verified": 28,
+    "verified": 60,
     "partial": 7,
     "files": [
       "docs/status/2026-10-24-research-analyst.md",
       "docs/status/2026-10-24-research-analyst-round2.md",
       "docs/status/2026-10-24-research-analyst-round3.md",
-      "docs/status/2026-10-27-research-analyst.md"
+      "docs/status/2026-10-27-research-analyst.md",
+      "docs/status/2026-11-03-research-analyst.md"
     ]
   }
 }
