@@ -29,7 +29,7 @@ Faevra produces plain-English traffic-drop reports from a Google Search Console 
 | Semrush / Ahrefs position-change reports | Show keyword movements | Require the analyst to interpret; not client-ready |
 | Manual Search Console analysis | Analyst builds their own story | Takes 2–4 hours per drop; inconsistent across clients |
 | Generic white-label reporting tools (AgencyAnalytics, DashThis) | Build dashboards | Show raw numbers; no plain-English narrative |
-| Algorithm-update trackers (Semrush Sensor, MozCast) | Flag industry-wide movements | Don't relate the drop to the specific client's pages |
+| Algorithm-update trackers (Semrush Sensor, MozCast) | Flag industry-wide movements | Don’t relate the drop to the specific client’s pages |
 
 Faevra's position: the only tool that produces a finished, client-ready plain-English explanation, not a data view that the analyst still has to interpret.
 
@@ -53,8 +53,8 @@ Research rounds: 5 (Oct–Nov 2026). Lead researcher: Rhea (research-analyst).
 ### Rules (non-negotiable)
 - Company name only: every email is from Faevra, never a personal name or personal profile.
 - Email limited companies and LLPs only. No sole traders.
-- One-click opt-out in every email. Any "stop" reply adds the address to the suppression list immediately.
-- No separate sending domain. First 30 emails go from info@faevra.io by hand (founder sends).
+- One-click opt-out in every email. Any “stop” reply adds the address to the suppression list immediately.
+- No separate sending domain. All emails from info@faevra.io.
 - No price mentioned until Gate 2.
 - No invented results, case studies or testimonials.
 - Founder approves every draft before it is sent.
@@ -73,38 +73,49 @@ The free report serves two purposes: it is the Gate 1 pass condition (SC access 
 
 ---
 
-## 5. Outreach pipeline (Sol's workflow)
+## 5. Outreach pipeline (Harvey + Sol)
 
-Sol (sales-outreach agent) manages the pipeline:
+The pipeline uses two tools:
 
-1. **Draft** — Sol reads the prospect list from the Google Sheets CRM, opens each agency's contact page, finds a direct email address or contact form, and writes a personalised email draft. Sol saves each draft to Gmail (via Gmail MCP) and marks the row in the Sheet as "drafted".
-2. **Queue** — Gmail drafts sit in the inbox until the founder reviews and sends them. Founder sends 5–10 per day, by hand, from info@faevra.io.
-3. **Log** — when a reply arrives (access granted, request for more info, "stop", or no reply after 7 days), Sol logs the outcome in the Sheet and flags it in the daily board note.
-4. **Follow-up** — one follow-up email, 7 days after the first, for non-replies. Sol drafts it; founder sends.
-5. **Report** — Sol writes a brief to docs/status/<date>-sales-outreach.md after each wave.
+**Harvey** (runs on the founder’s laptop via Claude Code) handles enrichment and drafting:
+1. Finds contact emails from agency sites by inspecting live signals (tech stack, careers page, footer links, job postings).
+2. Writes contextual cold email drafts — one per prospect, referencing a specific signal from their site.
+3. Stages each draft in the outbox queue at http://localhost:5555. The founder reviews and approves each one before anything is sent.
+4. Sends approved emails from info@faevra.io via Gmail OAuth.
 
-### Tools Sol uses
-- Gmail MCP: `create_draft`, `search_threads` (to check for replies), `list_labels`
-- Google Sheets MCP: `get_values`, `update_values` (CRM status column)
-- WebFetch / WebSearch: to find contact email addresses from agency sites
+**Sol** (cloud agent, this session) handles tracking and reply management:
+1. Reads the Google Sheets CRM after each Harvey wave and updates rows: status, draft date, Gmail draft ID.
+2. Watches Gmail for replies. Logs outcome per row: “access granted” / “more info” / “stop” / “no reply after 7 days”.
+3. Adds “stop” reply addresses to the suppression tab immediately.
+4. Flags rows due for a follow-up (7 days, no reply) in a docs/status note for the founder to review.
+5. Writes wave reports to docs/status/<date>-sales-outreach.md.
+
+**Approval gate**: nothing is sent without the founder’s explicit approval in Harvey’s outbox UI.
 
 ---
 
-## 6. Automation tools in scope
+## 6. Automation tools
 
-### Available now (no cost)
-- **Gmail MCP** (connected in this Cowork session): Sol uses this to create Gmail drafts. The founder sees them in the Gmail inbox, reviews and sends.
-- **Google Sheets MCP** (connected in this Cowork session): CRM tracker. Sol reads the prospect list and writes back status.
+### Harvey (primary — install on laptop)
+Open-source sales agent running on Claude Code. Finds prospects, enriches with live signals, drafts contextual emails, stages in an outbox queue.
+- Source: https://github.com/ethanplusai/harvey
+- Setup reference: docs/decisions/harvey-setup.md
+- Status: pending install (task 19).
 
-### Under consideration
-- **Clay** (500 free credits available): enrichment and sequencing. Potential use: enrich the 60 prospects with direct email addresses (reducing the manual "find contact email" step). Decision deferred — test when the first wave is complete and volume justifies it.
-- **Apollo / Hunter.io**: email finder for UK agencies. Deferred to wave 2 if finding contact emails manually slows Sol down significantly.
+### Gmail MCP (connected)
+Sol uses `search_threads` to watch for replies and `create_draft` for follow-up drafts.
+
+### Google Sheets MCP (connected)
+Sol uses `get_values` and `update_values` to keep the CRM in sync.
+
+### Clay (deferred)
+500 free credits available. Potential use: bulk email enrichment for prospects where Harvey cannot find a contact email from the site itself. Decision deferred to wave 2.
 
 ---
 
 ## 7. Fake-door page
 
-Proposed (not decided as of 2026-11-08): a separate landing page with real prices (Pro, Agency, Founding agency) to test willingness to pay before Gate 2. Decision proposed for Fri 13 Nov. Needs: a pass threshold (what percentage of visitors clicking "buy" counts as a signal), a Pro price, and a traffic plan following the company-name-only rule.
+Proposed (not decided as of 2026-11-08): a separate landing page with real prices (Pro, Agency, Founding agency) to test willingness to pay before Gate 2. Decision proposed for Fri 13 Nov. Needs: a pass threshold (what percentage of visitors clicking “buy” counts as a signal), a Pro price, and a traffic plan following the company-name-only rule.
 
 The fake-door page is separate from the outreach. Outreach aims at Gate 1 (SC access). The fake-door aims at Gate 2 signal (willingness to pay).
 
@@ -112,16 +123,16 @@ The fake-door page is separate from the outreach. Outreach aims at Gate 1 (SC ac
 
 ## 8. Suppression list
 
-Maintained in the Google Sheets CRM as a separate tab. Sol checks it before drafting any email. Any "stop" reply is added to the suppression list within one working day. Never contact a suppressed address again.
+Maintained in the Google Sheets CRM as a separate tab. Harvey and Sol both check it before any draft or send. Any “stop” reply is added within one working day. Never contact a suppressed address again.
 
 ---
 
-## 9. What needs the founder's decision before proceeding
+## 9. What needs the founder’s action before proceeding
 
-- Google Sheet URL/ID: share with the agent team so Sol can read the prospect list directly.
-- Sender name: replace `[Founder name]` in the existing 5 drafts with the name to use on outreach (or confirm "no name, just Faevra").
-- Site live: ideally outreach goes out when faevra.io is live (Cloudflare Pages task 1). If the founder wants to start before the site is live, the email can omit the site link and add it in the follow-up.
-- Clay test: approve or decline spending the 500 free credits.
+- **Harvey setup** (task 19): install Harvey on the laptop per docs/decisions/harvey-setup.md.
+- **Google Sheet URL/ID**: share with the agent team so Sol can read the prospect list directly.
+- **Site live**: ideally outreach goes out when faevra.io is live. If starting before the site is live, omit the site link from emails and add it in the follow-up. `harvey train` requires the live URL.
+- **Clay test**: approve or decline spending the 500 free credits.
 
 ---
 
@@ -134,3 +145,4 @@ Maintained in the Google Sheets CRM as a separate tab. Sol checks it before draf
 | 2026-10-24 | 5 email drafts written by Sol; not sent; await mailbox and founder approval | Sol |
 | 2026-11-03 | Mailbox live (info@faevra.io); 60 verified prospects reached | founder / Rhea |
 | 2026-11-08 | Sales pipeline made an active priority; Sol assigned to draft-and-queue workflow | founder |
+| 2026-11-08 | Harvey adopted as the enrichment and drafting tool; Sol becomes CRM tracker | founder |
