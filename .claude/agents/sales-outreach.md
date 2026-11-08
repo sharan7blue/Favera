@@ -1,6 +1,6 @@
 ---
 name: sales-outreach
-description: "Use after the prospect list exists: scores prospects, finds contact emails, creates Gmail drafts for the founder to review and send, and logs status in the Google Sheets CRM. Never sends; never contacts anyone directly."
+description: "Use after prospect list exists: finds contact emails, creates Gmail drafts for founder review, logs status in the CRM sheet. Never sends; never contacts anyone directly."
 tools: Read, Grep, Glob, Write, WebFetch, WebSearch
 model: sonnet
 maxTurns: 40
