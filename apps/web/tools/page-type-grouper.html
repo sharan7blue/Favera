@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traffic Drop Analyser — Faevra</title>
+  <meta name="description" content="Free browser tool for SEO agencies: upload two Search Console exports and instantly see which page types drove a traffic drop.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fbfaf8;
+      --bg-subtle: #f4f2ed;
+      --text: #1c1b19;
+      --quiet: #5b5852;
+      --accent: #d95c1a;
+      --accent-text: #ffffff;
+      --rule: #e3e0da;
+      --focus: #d95c1a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161513;
+        --bg-subtle: #1e1c1a;
+        --text: #f1efea;
+        --quiet: #a9a59c;
+        --accent: #f5834a;
+        --accent-text: #0e0d0c;
+        --rule: #2c2a26;
+        --focus: #f5834a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.6 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    .wrap { max-width: 40rem; margin: 0 auto; padding: 0 16px; }
+    header.wrap { padding-top: 24px; padding-bottom: 8px; }
+    .brand { font-weight: 700; letter-spacing: 0.02em; margin: 0; }
+    .brand a { color: inherit; text-decoration: none; }
+    .brand a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+    h1 {
+      font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      font-size: 2.1rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 2.5rem 0 1rem;
+      text-wrap: balance;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.5rem;
+      text-wrap: balance;
+    }
+    .lead { font-size: 1.15rem; text-wrap: pretty; margin-top: 0; }
+    .note { color: var(--quiet); font-size: 0.95rem; }
+    a { color: var(--accent); }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+    section { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+    section.hero { border-top: 0; padding-top: 0; background: var(--bg-subtle); margin: 0 -16px; padding-left: 16px; padding-right: 16px; padding-bottom: 2.5rem; }
+    footer.wrap { padding: 2rem 16px 3rem; border-top: 1px solid var(--rule); }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 16px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--text);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 16px; }
+
+    /* Upload areas */
+    .upload-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 480px) {
+      .upload-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.9rem; margin-top: 1.75rem; }
+      h2 { font-size: 1.25rem; margin-top: 2rem; }
+    }
+    .upload-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .drop-zone {
+      border: 2px dashed var(--rule);
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+      position: relative;
+      background: var(--bg);
+    }
+    .drop-zone:hover,
+    .drop-zone.drag-over {
+      border-color: var(--accent);
+      background: var(--bg-subtle);
+    }
+    .drop-zone:focus-within {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+    .drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .drop-zone input[type="file"]:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+    .drop-zone-text {
+      pointer-events: none;
+      font-size: 0.9rem;
+      color: var(--quiet);
+      line-height: 1.4;
+    }
+    .drop-zone-text strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .drop-zone.loaded {
+      border-color: var(--accent);
+      border-style: solid;
+    }
+    .drop-zone.loaded .drop-zone-text strong {
+      color: var(--accent);
+    }
+    .file-name {
+      display: none;
+      font-size: 0.85rem;
+      color: var(--quiet);
+      margin-top: 0.25rem;
+      word-break: break-all;
+    }
+    .drop-zone.loaded .file-name { display: block; }
+
+    /* Button */
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.4;
+      transition: filter 0.1s ease;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .button:hover { filter: brightness(1.08); }
+    .button:active { transform: translateY(1px); }
+    .button:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+    .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      filter: none;
+      transform: none;
+    }
+    .button-row { margin: 0.5rem 0 1.5rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .button { transition: none; }
+      .button:active { transform: none; }
+    }
+
+    /* Results */
+    #results { display: none; }
+    #results.visible { display: block; }
+    .headline-sentence {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1rem 0 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    th { font-weight: 600; }
+    td.numeric, th.numeric { text-align: right; }
+    .loss { color: var(--accent); font-weight: 600; }
+    .no-change { color: var(--quiet); }
+
+    /* Custom pattern */
+    #custom-pattern-section { display: none; }
+    #custom-pattern-section.visible { display: block; }
+    .custom-pattern-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .custom-pattern-box label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .custom-pattern-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .text-input {
+      flex: 1;
+      min-width: 160px;
+      padding: 0.6rem 0.8rem;
+      border: 2px solid var(--rule);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.95rem;
+    }
+    .text-input:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-color: var(--accent);
+    }
+
+    /* CTA */
+    .cta-section {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+    }
+    .cta-section p { margin-bottom: 0.75rem; }
+
+    /* Error */
+    .error-msg {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="wrap">
+    <p class="brand"><a href="/">Faevra</a></p>
+  </header>
+
+  <main class="wrap" id="main-content">
+    <section class="hero">
+      <h1>Traffic Drop Analyser</h1>
+      <p class="lead">Upload two Google Search Console "Pages" exports — one before the drop, one after — and see which page types drove the loss. Everything runs in your browser; no data leaves your machine.</p>
+    </section>
+
+    <section aria-label="Upload files">
+      <h2>Upload your exports</h2>
+      <p class="note">Export the "Pages" report from Search Console for each period. The file must be a CSV (comma-separated values).</p>
+
+      <div class="upload-grid">
+        <div>
+          <span class="upload-label" id="label-before">Before period (CSV)</span>
+          <div class="drop-zone" id="zone-before" role="group" aria-labelledby="label-before">
+            <input
+              type="file"
+              id="file-before"
+              accept=".csv,text/csv"
+              aria-label="Choose CSV file for the before period"
+            >
+            <div class="drop-zone-text">
+              <strong>Before period</strong>
+              Drag and drop or click to upload
+            </div>
+            <div class="file-name" id="name-before" aria-live="polite"></div>
+          </div>
+        </div>
+        <div>
+          <span class="upload-label" id="label-after">After period (CSV)</span>
+          <div class="drop-zone" id="zone-after" role="group" aria-labelledby="label-after">
+            <input
+              type="file"
+              id="file-after"
+              accept=".csv,text/csv"
+              aria-label="Choose CSV file for the after period"
+            >
+            <div class="drop-zone-text">
+              <strong>After period</strong>
+              Drag and drop or click to upload
+            </div>
+            <div class="file-name" id="name-after" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button
+          type="button"
+          class="button"
+          id="analyse-btn"
+          disabled
+          aria-disabled="true"
+        >Analyse drop</button>
+      </div>
+      <p class="error-msg" id="error-msg" role="alert" aria-live="assertive"></p>
+    </section>
+
+    <section id="results" aria-label="Analysis results" aria-live="polite">
+      <h2>Results</h2>
+      <p class="headline-sentence" id="headline-sentence"></p>
+      <div class="table-wrap">
+        <table id="results-table" aria-label="Click loss by page type">
+          <thead>
+            <tr>
+              <th scope="col">Page type</th>
+              <th scope="col" class="numeric">Pages affected</th>
+              <th scope="col" class="numeric">Clicks before</th>
+              <th scope="col" class="numeric">Clicks after</th>
+              <th scope="col" class="numeric">Change</th>
+              <th scope="col" class="numeric">Share of total loss</th>
+            </tr>
+          </thead>
+          <tbody id="results-tbody"></tbody>
+        </table>
+      </div>
+
+      <div id="custom-pattern-section" aria-live="polite">
+        <div class="custom-pattern-box">
+          <label for="custom-segment">Many dropped pages do not match a standard path. What URL segment do they share? (e.g. /news/)</label>
+          <div class="custom-pattern-row">
+            <input
+              type="text"
+              id="custom-segment"
+              class="text-input"
+              placeholder="/news/"
+              aria-label="URL segment shared by dropped pages"
+            >
+            <button type="button" class="button" id="reanalyse-btn">Re-analyse</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-label="Get the full report">
+      <p>Want the full picture — weekly history, trend charts and plain-English commentary for every page type?</p>
+      <a class="button" href="https://tally.so/r/KpY948">Get the weekly version with full history — Faevra</a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p class="note">&copy; 2026 Faevra Ltd &middot; <a href="/privacy.html">Privacy notice</a> &middot; <a href="/terms.html">Terms of service</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ---- State ----
+      var beforeData = null; // Map: url -> clicks
+      var afterData = null;  // Map: url -> clicks
+      var customSegment = null;
+
+      // ---- DOM refs ----
+      var fileBefore = document.getElementById('file-before');
+      var fileAfter  = document.getElementById('file-after');
+      var zoneBefore = document.getElementById('zone-before');
+      var zoneAfter  = document.getElementById('zone-after');
+      var nameBefore = document.getElementById('name-before');
+      var nameAfter  = document.getElementById('name-after');
+      var analyseBtn = document.getElementById('analyse-btn');
+      var reanalyseBtn = document.getElementById('reanalyse-btn');
+      var errorMsg   = document.getElementById('error-msg');
+      var results    = document.getElementById('results');
+      var headline   = document.getElementById('headline-sentence');
+      var tbody      = document.getElementById('results-tbody');
+      var customPatternSection = document.getElementById('custom-pattern-section');
+      var customSegmentInput   = document.getElementById('custom-segment');
+
+      // ---- URL type classification ----
+      var TYPES = ['article', 'campaign', 'product', 'other'];
+
+      function classifyUrl(url, extra) {
+        // extra is an optional fifth segment string
+        if (extra) {
+          if (url.indexOf(extra) !== -1) return extra;
+        }
+        if (/\/(blog|article|articles|news|post)\//.test(url)) return 'article';
+        if (/\/(campaign|lp|promo|landing)\//.test(url))        return 'campaign';
+        if (/\/(product|products|shop|store)\//.test(url))      return 'product';
+        return 'other';
+      }
+
+      // ---- CSV parser ----
+      // Skips lines starting with # and blank lines.
+      // Finds header row containing "Top pages" and parses from there.
+      function parseCsv(text) {
+        var lines = text.split(/\r?\n/);
+        var headerIdx = -1;
+        var urlCol = -1;
+        var clickCol = -1;
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line || line.charAt(0) === '#') continue;
+          // Check if this is the header row
+          if (line.indexOf('Top pages') !== -1) {
+            headerIdx = i;
+            var cols = splitCsvRow(line);
+            for (var c = 0; c < cols.length; c++) {
+              var h = cols[c].trim().replace(/^"|"$/g, '');
+              if (h === 'Top pages') urlCol = c;
+              if (h === 'Clicks')    clickCol = c;
+            }
+            break;
+          }
+        }
+
+        if (headerIdx === -1) {
+          throw new Error('Could not find the header row ("Top pages") in this file. Make sure you exported the Pages report from Google Search Console.');
+        }
+        if (urlCol === -1 || clickCol === -1) {
+          throw new Error('Could not find the "Top pages" or "Clicks" column. Please check the CSV is a Search Console Pages export.');
+        }
+
+        var map = {};
+        for (var j = headerIdx + 1; j < lines.length; j++) {
+          var row = lines[j].trim();
+          if (!row) continue;
+          var cells = splitCsvRow(row);
+          if (cells.length <= Math.max(urlCol, clickCol)) continue;
+          var url    = cells[urlCol].trim().replace(/^"|"$/g, '');
+          var clicks = parseFloat(cells[clickCol].replace(/^"|"$/g, '')) || 0;
+          if (!url) continue;
+          if (map[url] !== undefined) {
+            map[url] += clicks;
+          } else {
+            map[url] = clicks;
+          }
+        }
+        return map;
+      }
+
+      // Minimal CSV row splitter (handles quoted fields with commas)
+      function splitCsvRow(row) {
+        var result = [];
+        var inQuotes = false;
+        var current = '';
+        for (var k = 0; k < row.length; k++) {
+          var ch = row.charAt(k);
+          if (ch === '"') {
+            if (inQuotes && row.charAt(k + 1) === '"') {
+              current += '"';
+              k++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (ch === ',' && !inQuotes) {
+            result.push(current);
+            current = '';
+          } else {
+            current += ch;
+          }
+        }
+        result.push(current);
+        return result;
+      }
+
+      // ---- Analyse ----
+      function analyse() {
+        var extra = customSegment || null;
+
+        // All known URL types
+        var typeList = extra ? TYPES.concat([extra]) : TYPES.slice();
+
+        // Gather all URLs from both maps
+        var allUrls = {};
+        var url;
+        for (url in beforeData) { allUrls[url] = true; }
+        for (url in afterData)  { allUrls[url] = true; }
+
+        // Build per-type accumulators
+        var typeBefore    = {};
+        var typeAfter     = {};
+        var typePages     = {};
+        var typeAffected  = {};
+
+        typeList.forEach(function(t) {
+          typeBefore[t]   = 0;
+          typeAfter[t]    = 0;
+          typePages[t]    = 0;
+          typeAffected[t] = 0;
+        });
+
+        for (url in allUrls) {
+          var type    = classifyUrl(url, extra);
+          var before  = beforeData[url]  !== undefined ? beforeData[url]  : 0;
+          var after   = afterData[url]   !== undefined ? afterData[url]   : 0;
+          typeBefore[type]  += before;
+          typeAfter[type]   += after;
+          typePages[type]   += 1;
+          if (before > after) typeAffected[type] += 1;
+        }
+
+        // Compute changes
+        var rows = typeList.map(function(t) {
+          return {
+            type:     t,
+            pages:    typePages[t],
+            affected: typeAffected[t],
+            before:   Math.round(typeBefore[t]),
+            after:    Math.round(typeAfter[t]),
+            change:   Math.round(typeAfter[t] - typeBefore[t])
+          };
+        });
+
+        // Total click loss (sum of losses only, not gains)
+        var totalLoss = rows.reduce(function(sum, r) {
+          return sum + (r.change < 0 ? -r.change : 0);
+        }, 0);
+
+        // Add share of loss
+        rows.forEach(function(r) {
+          r.lossAbs  = r.change < 0 ? -r.change : 0;
+          r.sharePct = totalLoss > 0 ? (r.lossAbs / totalLoss * 100) : 0;
+        });
+
+        // Sort by change ascending (biggest loss first)
+        rows.sort(function(a, b) { return a.change - b.change; });
+
+        // Find the type with the biggest absolute loss
+        var worstRow = rows[0];
+
+        // Render headline
+        if (worstRow && worstRow.lossAbs > 0) {
+          var typeLabel = formatType(worstRow.type);
+          headline.textContent = 'Your ' + typeLabel + ' pages drove the largest drop: ' + formatNum(worstRow.lossAbs) + ' fewer clicks.';
+        } else {
+          headline.textContent = 'No click loss detected. The two periods are broadly similar.';
+        }
+
+        // Render table
+        tbody.innerHTML = '';
+        rows.forEach(function(r) {
+          var tr = document.createElement('tr');
+          var changeStr = r.change === 0
+            ? '0'
+            : (r.change < 0 ? '−' + formatNum(-r.change) : '+' + formatNum(r.change));
+          var changeClass = r.change < 0 ? 'loss' : (r.change === 0 ? 'no-change' : '');
+          tr.innerHTML =
+            '<td>' + escHtml(formatType(r.type)) + '</td>' +
+            '<td class="numeric">' + formatNum(r.pages) + '</td>' +
+            '<td class="numeric">' + formatNum(r.before) + '</td>' +
+            '<td class="numeric">' + formatNum(r.after) + '</td>' +
+            '<td class="numeric' + (changeClass ? ' ' + changeClass : '') + '">' + changeStr + '</td>' +
+            '<td class="numeric">' + (r.lossAbs > 0 ? r.sharePct.toFixed(1) + '%' : '—') + '</td>';
+          tbody.appendChild(tr);
+        });
+
+        // Show results
+        results.classList.add('visible');
+
+        // Show custom pattern prompt if "other" row loss > 20% of total
+        var otherRow = rows.find(function(r) { return r.type === 'other'; });
+        if (!extra && otherRow && totalLoss > 0 && (otherRow.lossAbs / totalLoss) > 0.20) {
+          customPatternSection.classList.add('visible');
+        } else if (extra) {
+          // Keep hidden after re-analysis (avoid infinite loop)
+          customPatternSection.classList.remove('visible');
+        } else {
+          customPatternSection.classList.remove('visible');
+        }
+
+        // Scroll results into view
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // ---- Helpers ----
+      function formatType(t) {
+        var labels = {
+          article:  'article',
+          campaign: 'campaign',
+          product:  'product',
+          other:    'other'
+        };
+        return labels[t] || t;
+      }
+
+      function formatNum(n) {
+        return Number(n).toLocaleString('en-GB');
+      }
+
+      function escHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.classList.add('visible');
+      }
+
+      function clearError() {
+        errorMsg.textContent = '';
+        errorMsg.classList.remove('visible');
+      }
+
+      function updateAnalyseButton() {
+        var ready = beforeData !== null && afterData !== null;
+        analyseBtn.disabled = !ready;
+        analyseBtn.setAttribute('aria-disabled', ready ? 'false' : 'true');
+      }
+
+      // ---- File reading ----
+      function readFile(file, callback) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          try {
+            var map = parseCsv(e.target.result);
+            callback(null, map);
+          } catch (err) {
+            callback(err);
+          }
+        };
+        reader.onerror = function() {
+          callback(new Error('Could not read the file. Please try again.'));
+        };
+        reader.readAsText(file);
+      }
+
+      function handleFileChange(input, zone, nameEl, storeCallback) {
+        var file = input.files && input.files[0];
+        if (!file) return;
+        clearError();
+        readFile(file, function(err, map) {
+          if (err) {
+            showError(err.message);
+            zone.classList.remove('loaded');
+            nameEl.textContent = '';
+            storeCallback(null);
+          } else {
+            zone.classList.add('loaded');
+            nameEl.textContent = file.name;
+            storeCallback(map);
+          }
+          updateAnalyseButton();
+        });
+      }
+
+      // ---- Drag and drop ----
+      function setupDragDrop(zone, input) {
+        zone.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          zone.classList.add('drag-over');
+        });
+        zone.addEventListener('dragleave', function() {
+          zone.classList.remove('drag-over');
+        });
+        zone.addEventListener('drop', function(e) {
+          e.preventDefault();
+          zone.classList.remove('drag-over');
+          var files = e.dataTransfer && e.dataTransfer.files;
+          if (files && files.length > 0) {
+            // Transfer to the input so the change handler fires
+            try {
+              var dt = new DataTransfer();
+              dt.items.add(files[0]);
+              input.files = dt.files;
+              input.dispatchEvent(new Event('change'));
+            } catch (_) {
+              // DataTransfer not supported in all browsers; fall back
+              var zone2 = zone;
+              var nameEl = zone2.querySelector('.file-name');
+              var storeCallback = zone === zoneBefore
+                ? function(m) { beforeData = m; }
+                : function(m) { afterData = m; };
+              clearError();
+              readFile(files[0], function(err, map) {
+                if (err) {
+                  showError(err.message);
+                  zone2.classList.remove('loaded');
+                  if (nameEl) nameEl.textContent = '';
+                  storeCallback(null);
+                } else {
+                  zone2.classList.add('loaded');
+                  if (nameEl) nameEl.textContent = files[0].name;
+                  storeCallback(map);
+                }
+                updateAnalyseButton();
+              });
+            }
+          }
+        });
+      }
+
+      setupDragDrop(zoneBefore, fileBefore);
+      setupDragDrop(zoneAfter, fileAfter);
+
+      // ---- Event listeners ----
+      fileBefore.addEventListener('change', function() {
+        handleFileChange(fileBefore, zoneBefore, nameBefore, function(m) { beforeData = m; });
+      });
+      fileAfter.addEventListener('change', function() {
+        handleFileChange(fileAfter, zoneAfter, nameAfter, function(m) { afterData = m; });
+      });
+
+      analyseBtn.addEventListener('click', function() {
+        if (!beforeData || !afterData) return;
+        clearError();
+        customSegment = null;
+        try {
+          analyse();
+        } catch (err) {
+          showError('Something went wrong during analysis: ' + err.message);
+        }
+      });
+
+      reanalyseBtn.addEventListener('click', function() {
+        var seg = customSegmentInput.value.trim();
+        if (!seg) {
+          customSegmentInput.focus();
+          return;
+        }
+        clearError();
+        customSegment = seg;
+        try {
+          analyse();
+        } catch (err) {
+          showError('Something went wrong during re-analysis: ' + err.message);
+        }
+      });
+
+    }());
+  </script>
+</body>
+</html>
