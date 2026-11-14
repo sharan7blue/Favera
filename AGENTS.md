@@ -9,7 +9,7 @@ Faevra sells plain-English Search Console traffic-drop reports to SEO freelancer
 | ![Mira](assets/avatars/project-manager.svg) Mira | `project-manager`    | Router / entry, orchestrator (management)   | every other agent; founder (daily report)            |
 | ![Rhea](assets/avatars/research-analyst.svg) Rhea | `research-analyst`   | Sourced research (research)                 | `sales-outreach`, `seo-specialist`, `copywriter`     |
 | ![Dev](assets/avatars/developer.svg) Dev | `developer`          | Site and app code (development)             | `qa-tester`                                          |
-| ![Uma](assets/avatars/ux-designer.svg) Uma | `ux-designer`        | Layout and accessibility (development)      | `developer`, `qa-tester`                             |
+| ![Uma](assets/avatars/ux-designer.svg) Uma | `ux-designer`        | UX strategy, spec, design review (development) | Stage 1: `developer` (spec); Stage 2: `project-manager` (review verdict) |
 | (dormant) | `data-engineer`      | Export parser, dormant until Gate 1 (development) | `report-reviewer`                              |
 | ![Quinn](assets/avatars/qa-tester.svg) Quinn | `qa-tester`          | Code, copy and claim checks (testing)       | `project-manager` on pass; the author on block       |
 | ![Ravi](assets/avatars/report-reviewer.svg) Ravi | `report-reviewer`    | Recomputes every report figure (testing)    | `project-manager`, then founder review               |
@@ -28,6 +28,7 @@ Dormant roles sit in `.claude/agents-dormant/`; move one to `.claude/agents/` to
 - `project-manager` assigns at most three tasks a day, each with a goal, evidence links, rules and a done-when. Only it reassigns tasks.
 - Agents hand work over through `docs/status/<date>-<agent>.md`, and never edit another agent's output.
 - Nobody reviews their own work: code and copy go to `qa-tester`, reports to `report-reviewer`.
+- **Feature development order (mandatory):** `ux-designer` spec → `developer` builds → `ux-designer` review → `qa-tester` → founder. No new feature or page skips the UX spec or UX review gate.
 - Non-developer agents write only under `docs/` (enforced by a hook).
 
 ## Founder approval is always required for
